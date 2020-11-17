@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -21,6 +23,16 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
     /**
      * Where to redirect users after login.
@@ -46,15 +58,9 @@ class LoginController extends Controller
                 return response('Unauthorized.', 401);
             break;
         }
-      }
+    }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+    protected function loggedOut(Request $request) {
+        return redirect('/login');
     }
 }

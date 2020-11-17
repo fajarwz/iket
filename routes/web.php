@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\User\RequestController;
+
 use App\Http\Controllers\Technician\TechnicianDashboardController;
 use App\Http\Controllers\Manager\ManagerDashboardController;
 
@@ -36,6 +39,8 @@ Route::prefix('user')
     ->group(function(){
         Route::get('/', [UserDashboardController::class, 'index'])
         ->name('user.dashboard');
+        Route::get('/request', [RequestController::class, 'index'])
+        ->name('user.request');
     });
 
 Route::prefix('technician')

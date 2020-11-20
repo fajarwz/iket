@@ -28,32 +28,75 @@
                   </div>
                   <div class="card-body ">
 
+                    {{-- <a href="{{ route('user.request.create') }}" class="btn btn-sm btn-primary mb-2">
+                      + Buat Request
+                    </a> --}}
+
+                    <a 
+                      href="#dynModal" 
+                      data-remote="{{ route('user.request.create') }}" 
+                      data-toggle="modal"
+                      data-target="#dynModal"
+                      data-action="{{ route('user.request.store') }}"
+                      data-title="Buat Request"
+                      class="btn btn-primary btn-sm mb-2" id="">
+                      + Buat Request
+                    </a>
+
                     <div class="table-responsive">
                       <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                           <tr>
-                              <th>ID</th>
-                              <th>Title</th>
-                              <th>Location</th>
-                              <th>Departure Date</th>
-                              <th>Type</th>
-                              <th>Duration</th>
-                              <th>Price</th>
-                              <th>Action</th>
+                            <th>ID</th>
+                            <th>Tanggal Request</th>
+                            <th>Nama Pemohon</th>
+                            <th>Departemen</th>
+                            <th>IP Komputer</th>
+                            <th>Nama Komputer</th>
+                            <th>Jenis Kerusakan</th>
+                            <th>Jenis Perbaikan</th>
+                            <th>Deskripsi</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
                           @forelse ($items as $item)
-                            {{-- <tr>
+                            <tr>
                               <td>{{ $item->id }}</td>
-                              <td>{{ $item->title }}</td>
-                              <td>{{ $item->location }}</td>
-                              <td>{{ $item->departure }}</td>
-                              <td>{{ $item->type }}</td>
-                              <td>{{ $item->duration }}</td>
-                              <td>${{ $item->price }}</td>
+                              <td>{{ $item->request_created_date }}</td>
+                              <td>{{ $item->client_name }}</td>
                               <td>
-                                <a href="{{ route('travel-package.edit', $item->id) }}" class="btn btn-info">
+                                @foreach ($departments as $department)
+                                    @if ($department->id === $item->department_id)
+                                      {{ $department->id. ' - ' .$department->name }}
+                                    @endif
+                                @endforeach
+                              </td>
+                              
+                              @foreach ($computers as $computer)
+                                @if ($computer->id === $item->computer_id)
+                                  <td>
+                                    {{ $computer->ip }}
+                                  </td>
+                                  <td>
+                                    {{ $computer->comp_name }}
+                                  </td>
+                                @endif
+                              @endforeach
+
+                              <td>
+                                @foreach ($break_types as $break_type)
+                                    @if ($break_type->id === $item->break_id)
+                                      {{ $break_type->name }}
+                                    @endif
+                                @endforeach
+                              </td>
+                              
+                              <td>{{ $item->kind_of_repair }}</td>
+                              <td>{{ $item->description }}</td>
+                              <td>
+                                <a href="{{ route('user.request.print') }}">Print</a>
+                                {{-- <a href="{{ route('travel-package.edit', $item->id) }}" class="btn btn-info">
                                   <i class="fa fa-pencil-alt"></i>
                                 </a>
                                 <form action="{{ route('travel-package.destroy', $item->id) }}" method="POST"
@@ -63,12 +106,12 @@
                                   <button class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
                                   </button>
-                                </form>
+                                </form> --}}
                               </td>
-                            </tr> --}}
+                            </tr>
                           @empty
                             <tr>
-                              <td colspan="8" class="text-center">
+                              <td colspan="10" class="text-center">
                                 Data Kosong
                               </td>
                             </tr>

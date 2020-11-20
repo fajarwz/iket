@@ -21,19 +21,15 @@ use App\Http\Controllers\Manager\ManagerDashboardController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Auth::routes();
-
 Auth::routes(['register' => false, 'reset' => false]);
 
-// Route::get('/', [HomeController::class, 'index'])
-//     ->name('home')
-//     ->middleware(['auth', 'user']);
+// Route::group( ['middleware' => 'auth' ], function()
+// {
+//     Route::get('admin/index', 'AdminController@index');
+//     Route::get('admin/ajuda', 'AdminController@ajuda');
+// });
 
-Route::prefix('user')
+Route::prefix('/')
     ->namespace('User')
     ->middleware(['auth'])
     ->group(function(){
@@ -41,9 +37,15 @@ Route::prefix('user')
         ->name('user.dashboard');
         Route::get('/request', [RequestController::class, 'index'])
         ->name('user.request');
+        Route::get('/request/create', [RequestController::class, 'create'])
+        ->name('user.request.create');
+        Route::post('/request/store', [RequestController::class, 'store'])
+        ->name('user.request.store');
+        Route::get('/request/print', [RequestController::class, 'print'])
+        ->name('user.request.print');
     });
 
-Route::prefix('technician')
+Route::prefix('t')
     ->namespace('Technician')
     ->middleware(['auth', 'is.technician'])
     ->group(function(){
@@ -51,7 +53,7 @@ Route::prefix('technician')
         ->name('technician.dashboard');
     });
 
-Route::prefix('manager')
+Route::prefix('m')
     ->namespace('Manager')
     ->middleware(['auth', 'is.manager'])
     ->group(function(){

@@ -24,13 +24,13 @@ class RequestRequest extends FormRequest
     public function rules()
     {
         return [
-            'request_created_date'  => 'required|date_format:Y-m-d H:i:s|', 
+            'request_created_date'  => 'required|date_format:Y-m-d|', 
             'client_name'           => 'required|max:100', 
             'department_id'         => 'required|integer|exists:departments,id', 
             'computer_id'           => 'required|integer|exists:computers,id', 
             'break_id'              => 'required|integer|exists:breaks,id', 
             'kind_of_repair'        => 'required|in:PERBAIKAN,FASILITAS',
-            'description'           => 'max:255'
+            'description'           => 'required|max:255'
         ];
     }
 }

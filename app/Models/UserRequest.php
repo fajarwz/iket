@@ -27,11 +27,23 @@ class UserRequest extends Model
 
     ];
 
-    public function followed_up_request(){
-        return $this->hasOne(FollowedUpRequest::class);
+    // public function followed_up_request(){
+    //     return $this->hasOne(FollowedUpRequest::class);
+    // }
+
+    // public function verified_request(){
+    //     return $this->hasOne(VerifiedRequest::class);
+    // }
+
+    public function break_type(){
+        return $this->hasOne(BreakType::class, 'id', 'break_id');
     }
 
-    public function verified_request(){
-        return $this->hasOne(VerifiedRequest::class);
+    public function computer(){
+        return $this->hasOne(Computer::class, 'id', 'computer_id');
+    }
+
+    public function department(){
+        return $this->hasOne(Department::class, 'id', 'department_id');
     }
 }

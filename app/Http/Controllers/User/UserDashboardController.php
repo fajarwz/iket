@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\UserRequest;
+
 class UserDashboardController extends Controller
 {
     /**
@@ -24,6 +26,12 @@ class UserDashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.user.dashboard');
+        $req_today      = UserRequest::where('request_created_date', date('Y-m-d'))->count();
+        $req_alltime    = UserRequest::count();
+
+        return view('pages.user.dashboard', [
+            'req_today'     => $req_today,
+            'req_alltime'   => $req_alltime 
+        ]);
     }
 }

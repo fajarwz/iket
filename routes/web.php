@@ -37,11 +37,13 @@ Route::prefix('/')
         ->name('user.dashboard');
         Route::get('/request', [RequestController::class, 'index'])
         ->name('user.request');
+        Route::get('/request/json', [RequestController::class, 'json'])
+        ->name('user.request.json');
         Route::get('/request/create', [RequestController::class, 'create'])
         ->name('user.request.create');
         Route::post('/request/store', [RequestController::class, 'store'])
         ->name('user.request.store');
-        Route::get('/request/print', [RequestController::class, 'print'])
+        Route::get('/request/print/{id}', [RequestController::class, 'printPreview'])
         ->name('user.request.print');
     });
 

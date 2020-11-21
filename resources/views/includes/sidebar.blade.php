@@ -22,7 +22,7 @@ Tip 2: you can also add an image using data-image tag
           </li>
           <li class="{{ request()->is('user/request') ? 'active' : '' }}">
             <a class="nav-link " href="{{ route('user.request') }}">
-                <i class="nc-icon nc-circle-09"></i>
+                <i class="nc-icon nc-bullet-list-67"></i>
                 <p>List Request</p>
             </a>
           </li>

@@ -49,7 +49,7 @@ class RequestController extends Controller
 
         // $items  = UserRequest::all();
 
-        return view('pages.user.request-list', 
+        return view('pages.user.request.list', 
         // [
         //     'items'      => $items,
         // ]
@@ -61,7 +61,7 @@ class RequestController extends Controller
         $computers      = Computer::all();
         $break_types    = BreakType::all();
 
-        return view('pages.user.request-create', [
+        return view('pages.user.request.create', [
             'departments'   => $departments,
             'computers'     => $computers,
             'break_types'   => $break_types
@@ -112,7 +112,7 @@ class RequestController extends Controller
             'break_type'
         ])->findOrFail($id);
 
-        $pdf = PDF::loadView('pages.user.request-print', [
+        $pdf = PDF::loadView('pages.user.request.print', [
             'item'  =>  $item 
         ]);
         return $pdf->stream();

@@ -19,6 +19,13 @@
 @section('content')
 <div class="content">
     <div class="container-fluid container-dashboard">
+        
+        <div class="row">
+            <div class="container">
+               <h3>&nbsp;Selamat Datang, {{ Auth::user()->name }}!</h3>
+            </div>
+        </div>
+
         <div class="row">
 
             <div class="col-md-3">

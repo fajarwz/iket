@@ -31,7 +31,7 @@ Auth::routes(['register' => false, 'reset' => false]);
 
 Route::prefix('/')
     ->namespace('User')
-    ->middleware(['auth'])
+    ->middleware(['auth', 'is.user'])
     ->group(function(){
         Route::get('/', [UserDashboardController::class, 'index'])
         ->name('user.dashboard');

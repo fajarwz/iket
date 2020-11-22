@@ -11,16 +11,16 @@ Tip 2: you can also add an image using data-image tag
           </a>
       </div>
       <ul class="nav">
-          <li class="nav-item {{ request()->is('user') || 
-            request()->is('technician') || 
-            request()->is('manager') ? 
+          <li class="nav-item {{ request()->is('/') || 
+            request()->is('t') || 
+            request()->is('m') ? 
             'active' : '' }}">
               <a class="nav-link" href="{{ route('user.dashboard') }}">
                   <i class="nc-icon nc-chart-pie-35"></i>
                   <p>Dashboard</p>
               </a>
           </li>
-          <li class="{{ request()->is('user/request') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('request') ? 'active' : '' }}">
             <a class="nav-link " href="{{ route('user.request') }}">
                 <i class="nc-icon nc-bullet-list-67"></i>
                 <p>List Request</p>

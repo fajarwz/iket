@@ -8,6 +8,8 @@ use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\User\RequestController;
 
 use App\Http\Controllers\Technician\TechnicianDashboardController;
+use App\Http\Controllers\Technician\FollowedUpRequestController;
+
 use App\Http\Controllers\Manager\ManagerDashboardController;
 
 /*
@@ -53,6 +55,16 @@ Route::prefix('t')
     ->group(function(){
         Route::get('/', [TechnicianDashboardController::class, 'index'])
         ->name('technician.dashboard');
+        Route::get('/f-up-request', [FollowedUpRequestController::class, 'index'])
+        ->name('technician.f-up-request');
+        Route::get('/f-up-request/json', [FollowedUpRequestController::class, 'json'])
+        ->name('technician.f-up-request.json');
+        Route::get('/f-up-request/show/{id}', [FollowedUpRequestController::class, 'show'])
+        ->name('technician.f-up-request.show');
+        Route::get('/f-up-request/edit/{id}', [FollowedUpRequestController::class, 'edit'])
+        ->name('technician.f-up-request.edit');
+        Route::get('/f-up-request/update/{id}', [FollowedUpRequestController::class, 'update'])
+        ->name('technician.f-up-request.update');
     });
 
 Route::prefix('m')

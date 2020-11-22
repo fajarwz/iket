@@ -10,6 +10,18 @@ table thead th:last-child, td:last-child {
   overflow: auto !important;
 }
 
+.table>thead>tr>th {
+  border: 1px solid #e9ecef !important
+}
+
+.form-check-input {
+  margin-left: 0 !important;
+}
+
+.form-check .form-check-label {
+  padding-left: 25px !important;
+}
+
 .modal-header {
   padding: 1rem !important;
   border-bottom: 1px solid #e9ecef !important;

@@ -14,7 +14,7 @@
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
  @extends('layouts.app')
 
- @section('title', 'IKET - Request List')
+ @section('title', 'IKET - Followed Up Request List')
 
  @section('content')
  <div class="content">
@@ -23,29 +23,24 @@
           <div class="col-12">
               <div class="card ">
                   <div class="card-header ">
-                      <h4 class="card-title">List Request</h4>
+                      <h4 class="card-title">List Request Ditindaklanjuti</h4>
                       <p class="card-category">Request dari semua user</p>
                   </div>
                   <div class="card-body ">
 
-                    <a 
-                      href="{{ route('user.request.create') }}" 
-                      class="btn btn-primary btn-sm mb-2">
-                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Buat Request
-                    </a>
-
                     <div class="table-responsive overflow-auto">
-                      <table class="table table-bordered" id="request-table" width="100%" cellspacing="0">
+                      <table class="table table-bordered" id="f-up-request-table" width="100%" cellspacing="0">
                         <thead>
                           <tr>
                             <th>ID</th>
                             <th>Tanggal Request</th>
                             <th>Nama Pemohon</th>
-                            <th>Departemen</th>
-                            <th>IP Komputer</th>
                             <th>Jenis Kerusakan</th>
-                            <th>Jenis Perbaikan</th>
                             <th>Deskripsi</th>
+                            <th>Tanggal Target</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Teknisi</th>
+                            <th>Selesai/Cancel</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -58,4 +53,5 @@
       </div>
   </div>
 </div>
+
  @endsection 

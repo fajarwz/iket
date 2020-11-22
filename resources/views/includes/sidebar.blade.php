@@ -20,12 +20,25 @@ Tip 2: you can also add an image using data-image tag
                   <p>Dashboard</p>
               </a>
           </li>
-          <li class="nav-item {{ request()->is('request') ? 'active' : '' }}">
-            <a class="nav-link " href="{{ route('user.request') }}">
-                <i class="nc-icon nc-bullet-list-67"></i>
-                <p>List Request</p>
-            </a>
-          </li>
+
+          @if (Auth::user()->role == 'USER')
+            <li class="nav-item {{ request()->is('request') ? 'active' : '' }}">
+              <a class="nav-link " href="{{ route('user.request') }}">
+                  <i class="nc-icon nc-bullet-list-67"></i>
+                  <p>List Request</p>
+              </a>
+            </li>    
+          @endif
+          
+          @if (Auth::user()->role == 'TECHNICIAN')
+            <li class="nav-item {{ request()->is('t/f-up-request') ? 'active' : '' }}">
+              <a class="nav-link " href="{{ route('technician.f-up-request') }}">
+                  <i class="nc-icon nc-bullet-list-67"></i>
+                  <p>L. Req. Ditindaklanjut</p>
+              </a>
+            </li>
+          @endif
+
       </ul>
   </div>
 </div>

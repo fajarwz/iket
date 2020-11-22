@@ -22,4 +22,8 @@ class FollowedUpRequest extends Model
     protected $hidden = [
 
     ];
+
+    public function user_request(){
+        return $this->hasOne(UserRequest::class, 'id', 'request_id');
+    }
 }

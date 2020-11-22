@@ -16,10 +16,10 @@ class CreateRequestFollowUpsTable extends Migration
         Schema::create('followed_up_requests', function (Blueprint $table) {
             $table->id();
             $table->integer('request_id');
-            $table->date('target_date');
-            $table->date('target_completion_date');
-            $table->string('technician', 100);
-            $table->enum('is_done', ['YES', 'CANCELED']);
+            $table->date('target_date')->nullable();
+            $table->date('target_completion_date')->nullable();
+            $table->string('technician', 100)->nullable();
+            $table->enum('is_done', ['YES', 'CANCELED'])->nullable();
 
             $table->softDeletes();
             $table->timestamps();

@@ -55,7 +55,6 @@
                             <th>Nama Pemohon</th>
                             <th>Departemen</th>
                             <th>IP Komputer</th>
-                            <th>Nama Komputer</th>
                             <th>Jenis Kerusakan</th>
                             <th>Jenis Perbaikan</th>
                             <th>Deskripsi</th>

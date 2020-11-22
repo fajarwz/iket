@@ -10,6 +10,9 @@ use App\Models\Department;
 use App\Models\Computer;
 use App\Models\BreakType;
 
+use App\Models\FollowedUpRequest;
+use App\Models\VerifiedRequest;
+
 use App\Http\Requests\User\RequestRequest;
 
 use PDF;
@@ -20,7 +23,7 @@ class RequestController extends Controller
     public function json(){
         $data = UserRequest::with([
             'department', 'computer', 'break_type'
-        ]);
+        ])->orderBy('created_at', 'desc');
 
         return DataTables::of($data)
         ->addColumn('action', function($data){
@@ -87,7 +90,20 @@ class RequestController extends Controller
 
         $data = $request->all();
 
-        UserRequest::create($data);
+        $latest_request_id = UserRequest::create($data)->id;
+
+        if($latest_request_id != null){
+            $latest_followed_up_request_id = FollowedUpRequest::create([
+                                            'request_id'    => $latest_request_id
+                                            ])->id;
+
+            if($latest_followed_up_request_id != null) {
+                VerifiedRequest::create([
+                    'followed_up_request_id'    => $latest_followed_up_request_id 
+                ]);
+            }
+        }
+
         return redirect()->route('user.request'); 
     }
 

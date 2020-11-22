@@ -23,7 +23,7 @@
 
             <div class="col-md-3">
                 <div class="card-counter primary">
-                    <i class="fas fa-code-fork"></i>
+                    <i class="fas fa-calendar"></i>
                     <span class="count-numbers">{{ $req_today }}</span>
                     <span class="count-name">Request Hari Ini</span>
                 </div>
@@ -31,7 +31,7 @@
 
             <div class="col-md-3">
                 <div class="card-counter primary">
-                    <i class="fas fa-code-fork"></i>
+                    <i class="fas fa-calendar-alt"></i>
                     <span class="count-numbers">{{ $req_alltime }}</span>
                     <span class="count-name">Request Sepanjang Waktu</span>
                 </div>

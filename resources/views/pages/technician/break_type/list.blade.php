@@ -28,6 +28,12 @@
                   </div>
                   <div class="card-body ">
 
+                    <a 
+                      href="{{ route('break-type.create') }}" 
+                      class="btn btn-primary btn-sm mb-2">
+                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Buat Data Jenis Kerusakan
+                    </a>
+
                     <div class="table-responsive overflow-auto">
                       <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
@@ -37,14 +43,16 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
                           @forelse ($items as $item)
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $item->name }}</td>
+                            <tr>
+                              <td>{{ $no++ }}</td>
+                              <td>{{ $item->name }}</td>
+                            </tr>
                           @empty
-                            <td colspan="3">Tidak ada data yang dapat ditampilkan</td>
+                            <tr>
+                              <td colspan="2">Tidak ada data yang dapat ditampilkan</td>
+                            </tr>
                           @endforelse
-                          </tr>
                         </tbody>
                       </table>
                     </div>

@@ -20,7 +20,7 @@ class DepartmentController extends Controller
     public function index()
     {
         $no     = 1;
-        $items  = Department::all();
+        $items  = Department::orderBy('dept_code', 'asc')->get();
         return view('pages.technician.department.list', [
             'no'        => $no,
             'items'     => $items 
@@ -34,7 +34,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.technician.department.create');
     }
 
     /**
@@ -43,9 +43,12 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DepartmentRequest $request)
     {
-        //
+        $data = $request->all();
+        
+        Department::create($data);
+        return redirect()->route('department.index');
     }
 
     /**
@@ -67,7 +70,11 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Department::findOrFail($id);
+
+        return view('pages.technician.department.edit', [
+            'item'  => $item 
+        ]);
     }
 
     /**
@@ -77,9 +84,13 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DepartmentRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $item = Department::findOrFail($id);
+
+        $item->update($data);
+        return redirect()->route('department.index');
     }
 
     /**

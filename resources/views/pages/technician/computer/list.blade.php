@@ -40,7 +40,6 @@
                           <tr>
                             <th>IP Komputer</th>
                             <th>Nama Komputer</th>
-                            <th>Username</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -73,7 +72,6 @@
     columns: [
         {data: 'ip', name: 'ip'},
         {data: 'comp_name', name: 'comp_name'},
-        {data: 'user_name', name: 'user_name'},
         {data: 'action', name: 'action'} 
     ]
   });

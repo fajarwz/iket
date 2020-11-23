@@ -11,17 +11,14 @@ Tip 2: you can also add an image using data-image tag
           </a>
       </div>
       <ul class="nav">
-          <li class="nav-item {{ request()->is('/') || 
-            request()->is('t') || 
-            request()->is('m') ? 
-            'active' : '' }}">
-              <a class="nav-link" href="{{ route('user.dashboard') }}">
-                  <i class="nc-icon nc-chart-pie-35"></i>
-                  <p>Dashboard</p>
-              </a>
-          </li>
 
           @if (Auth::user()->role == 'USER')
+            <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('user.dashboard') }}">
+                    <i class="nc-icon nc-chart-pie-35"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
             <li class="nav-item {{ request()->is('request') ? 'active' : '' }}">
               <a class="nav-link " href="{{ route('user.request') }}">
                   <i class="nc-icon nc-bullet-list-67"></i>
@@ -31,6 +28,12 @@ Tip 2: you can also add an image using data-image tag
           @endif
           
           @if (Auth::user()->role == 'TECHNICIAN')
+            <li class="nav-item {{ request()->is('t') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('technician.dashboard') }}">
+                    <i class="nc-icon nc-chart-pie-35"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
             <li class="nav-item {{ request()->is('t/f-up-request') ? 'active' : '' }}">
               <a class="nav-link " href="{{ route('technician.f-up-request') }}">
                   <i class="nc-icon nc-bullet-list-67"></i>

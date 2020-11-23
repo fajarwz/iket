@@ -12,7 +12,7 @@ class Department extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name'
+        'dept_code', 'name'
     ];
 
     protected $hidden = [

@@ -20,7 +20,7 @@ class ComputerController extends Controller
         return DataTables::of($data)
         ->addColumn('action', function($data){
                $btn = '<a 
-                href="'.$data->id.'/edit" 
+                href="computer/'.$data->id.'/edit" 
                 class="btn btn-primary btn-sm mb-2" id="">
                 <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
                 </a>';
@@ -99,11 +99,9 @@ class ComputerController extends Controller
     public function update(ComputerRequest $request, $id)
     {
         $data = $request->all();
-
         $item = Computer::findOrFail($id);
 
         $item->update($data);
-
         return redirect()->route('computer.index');
     }
 

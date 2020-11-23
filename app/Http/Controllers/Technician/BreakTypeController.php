@@ -34,7 +34,7 @@ class BreakTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.technician.break_type.create');
     }
 
     /**
@@ -43,9 +43,12 @@ class BreakTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BreakTypeRequest $request)
     {
-        //
+        $data = $request->all();
+        
+        BreakType::create($data);
+        return redirect()->route('break-type.index');
     }
 
     /**

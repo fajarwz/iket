@@ -50,6 +50,9 @@ Route::prefix('t')
     ->group(function(){
         Route::get('/', [TechnicianDashboardController::class, 'index'])
         ->name('technician.dashboard');
+        Route::get('/json', [TechnicianDashboardController::class, 'json'])
+        ->name('technician.dashboard.json');
+
         Route::get('/f-up-request', [FollowedUpRequestController::class, 'index'])
         ->name('technician.f-up-request');
         Route::get('/f-up-request/json', [FollowedUpRequestController::class, 'json'])

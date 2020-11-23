@@ -58,4 +58,35 @@
       </div>
   </div>
 </div>
- @endsection 
+@endsection 
+
+@push('after-style')
+  {{-- Datatables  --}}
+  <link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet" />
+@endpush
+
+@push('after-script')
+{{-- DataTables  --}}
+<script src="{{ asset('assets/js/datatables.min.js') }}" type="text/javascript"></script>
+
+<script>
+  $(function() {
+    $('#request-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{{ route('user.request.json') }}',
+        columns: [
+            {data: 'id', name: 'id'},
+            {data: 'request_created_date', name: 'request_created_date'},
+            {data: 'client_name', name: 'client_name'},
+            {data: 'department.name', name: 'department.name'},
+            {data: 'computer.ip', name: 'computer.ip'},
+            {data: 'break_type.name', name: 'break_type.name'},
+            {data: 'kind_of_repair', name: 'kind_of_repair'},
+            {data: 'description', name: 'description'},
+            {data: 'action', name: 'action'} 
+        ]
+    });
+  })
+</script>
+@endpush

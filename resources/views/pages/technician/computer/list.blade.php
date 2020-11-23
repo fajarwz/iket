@@ -44,26 +44,6 @@
                             <th>Action</th>
                           </tr>
                         </thead>
-                        {{-- <tbody>
-                          @forelse ($items as $item)
-                          <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $item->ip }}</td>
-                            <td>{{ $item->comp_name }}</td>
-                            <td>
-                              <a 
-                                href="{{ route('computer.edit', $item->id) }}" 
-                                class="btn btn-primary btn-sm mb-2" id="">
-                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
-                              </a>
-                            </td>
-                          </tr>
-                          @empty
-                          <tr>
-                            <td colspan="3">Tidak ada data yang dapat ditampilkan</td>
-                          </tr>
-                          @endforelse
-                        </tbody> --}}
                       </table>
                     </div>
 
@@ -76,7 +56,15 @@
 
 @endsection 
 
+@push('after-style')
+  {{-- Datatables  --}}
+  <link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet" />
+@endpush
+
 @push('after-script')
+{{-- DataTables  --}}
+<script src="{{ asset('assets/js/datatables.min.js') }}" type="text/javascript"></script>
+
 <script>
   $('#computer-table').DataTable({
     processing: true,

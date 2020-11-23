@@ -54,4 +54,36 @@
   </div>
 </div>
 
- @endsection 
+@endsection 
+
+@push('after-style')
+  {{-- Datatables  --}}
+  <link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet" />
+@endpush
+
+@push('after-script')
+{{-- DataTables  --}}
+<script src="{{ asset('assets/js/datatables.min.js') }}" type="text/javascript"></script>
+
+<script>
+  $(function() {
+    $('#f-up-request-table').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: '{{ route('technician.f-up-request.json') }}',
+      columns: [
+          {data: 'request_id', name: 'request_id'},
+          {data: 'user_request.request_created_date', name: 'user_request.request_created_date'},
+          {data: 'user_request.client_name', name: 'user_request.client_name'},
+          {data: 'user_request.break_type.id', name: 'user_request.break_type.id'},
+          {data: 'user_request.description', name: 'user_request.description'},
+          {data: 'target_date', name: 'target_date'},
+          {data: 'target_completion_date', name: 'target_completion_date'},
+          {data: 'technician', name: 'technician'},
+          {data: 'is_done', name: 'is_done'},
+          {data: 'action', name: 'action'} 
+      ]
+    });
+  });
+  </script>
+@endpush

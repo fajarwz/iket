@@ -6,5 +6,3 @@
 <link href="{{ asset('assets/css/light-bootstrap-dashboard.css?v=2.0.0 ') }}" rel="stylesheet" />
 {{-- Custom CSS  --}}
 <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet" />
-{{-- Datatables  --}}
-<link href="{{ asset('assets/css/datatables.min.css') }}" rel="stylesheet" />

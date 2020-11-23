@@ -79,6 +79,16 @@
                             <th>Selesai/Cancel</th>
                             <td>{{ $item->is_done }}</td>
                           </tr>
+                          <tr>
+                            <th></th>
+                            <td>
+                              <a 
+                                href="{{ route('technician.f-up-request.edit', $item->id) }}" 
+                                class="btn btn-primary btn-sm mb-2" id="">
+                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
+                              </a>
+                            </td>
+                          </tr>
                         </thead>
                       </table>
                     </div>

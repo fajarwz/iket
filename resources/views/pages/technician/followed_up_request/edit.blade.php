@@ -93,15 +93,21 @@
                              </div>
 
                             <div class="form-group">
-                                <label for="target_date" class="form-control-label @error('target_date') is-invalid @enderror">Tanggal Target</label>
-                                <input type="text" class="form-control datepicker" name="target_date" id="target_date" placeholder=""
-                                    value="{{ $item->target_date }}">
+                                <label for="target_date" class="form-control-label">Tanggal Target</label>
+                                <input type="text" class="form-control @error('target_date') is-invalid @enderror datepicker" name="target_date" id="target_date" placeholder=""
+                                    value="{{ $item->target_date }}" autofocus>
+                                @error('target_date')
+                                  @include('includes.error-field')
+                                @enderror
                             </div>
 
                             <div class="form-group">
-                              <label for="target_completion_date" class="form-control-label @error('target_completion_date') is-invalid @enderror">Tanggal Selesai</label>
-                              <input type="text" class="form-control datepicker" name="target_completion_date" id="target_completion_date" placeholder=""
+                              <label for="target_completion_date" class="form-control-label">Tanggal Selesai</label>
+                              <input type="text" class="form-control @error('target_completion_date') is-invalid @enderror datepicker" name="target_completion_date" id="target_completion_date" placeholder=""
                                   value="{{ $item->target_completion_date }}">
+                              @error('target_completion_date')
+                                @include('includes.error-field')
+                              @enderror
                             </div>
 
                             <div class="form-group">
@@ -109,7 +115,7 @@
                               <select name="technician" id="technician" class="custom-select form-control @error('technician') is-invalid @enderror">
                                 <option value="" selected>Pilih Teknisi</option>
                                 @foreach ($technicians as $technician)
-                                <option value="{{ $technician->name }}">
+                                <option value="{{ $technician->name }}" {{ $item->technician == $technician->name ? "selected" : "" }}>
                                     {{ $technician->name }}</option>
                                 @endforeach
                               </select>
@@ -121,18 +127,18 @@
                             <div class="form-group">
                               <label for="is_done" class="form-control-label">Selesai/Batal</label>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="is_done" id="YES" value="YES">
+                                <input class="form-check-input" type="radio" name="is_done" id="YES" value="YES" {{ $item->is_done == 'YES' ? "checked" : "" }}>
                                 <label class="form-check-label" for="YES">
                                   SELESAI
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="is_done" id="CANCELED" value="CANCELED">
+                                <input class="form-check-input" type="radio" name="is_done" id="CANCELED" value="CANCELED" {{ $item->is_done == 'CANCELED' ? "checked" : "" }}>
                                 <label class="form-check-label" for="CANCELED">
                                   BATAL
                                 </label>
                               </div>
-                              @error('technician')
+                              @error('is_done')
                                   @include('includes.error-field')
                               @enderror
                             </div>

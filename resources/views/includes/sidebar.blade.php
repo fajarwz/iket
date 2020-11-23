@@ -37,6 +37,29 @@ Tip 2: you can also add an image using data-image tag
                   <p>L. Req. Ditindaklanjut</p>
               </a>
             </li>
+
+            <hr>
+
+            <li class="nav-item {{ request()->is('t/break-type') ? 'active' : '' }}">
+              <a class="nav-link " href="{{ route('break-type.index') }}">
+                  <i class="nc-icon nc-fav-remove"></i>
+                  <p>List Jenis Kerusakan</p>
+              </a>
+            </li>
+
+            <li class="nav-item {{ request()->is('t/computer') ? 'active' : '' }}">
+              <a class="nav-link " href="{{ route('computer.index') }}">
+                  <i class="nc-icon nc-tv-2"></i>
+                  <p>List Komputer</p>
+              </a>
+            </li>
+
+            <li class="nav-item {{ request()->is('t/department') ? 'active' : '' }}">
+              <a class="nav-link " href="{{ route('department.index') }}">
+                  <i class="nc-icon nc-vector"></i>
+                  <p>List Departemen</p>
+              </a>
+            </li>
           @endif
 
       </ul>

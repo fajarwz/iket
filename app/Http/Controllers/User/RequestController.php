@@ -39,21 +39,7 @@ class RequestController extends Controller
     }
 
     public function index() {
-        // $items          = UserRequest::with([
-        //     'break_type', 'computer', 'department'
-        // ])->get();
-
-        // $departments    = Department::all();
-        // $computers      = Computer::all();
-        // $break_types    = BreakType::all();
-
-        // $items  = UserRequest::all();
-
-        return view('pages.user.request.list', 
-        // [
-        //     'items'      => $items,
-        // ]
-        );
+        return view('pages.user.request.list');
     }
 
     public function create() {
@@ -69,25 +55,6 @@ class RequestController extends Controller
     }
 
     public function store(RequestRequest $request) {
-        // $validator = Validator::make($request->all(), [
-        //     'request_created_date'  => 'required|date_format:Y-m-d|', 
-        //     'client_name'           => 'required|max:100', 
-        //     'department_id'         => 'required|integer|exists:departments,id', 
-        //     'computer_id'           => 'required|integer|exists:computers,id', 
-        //     'break_id'              => 'required|integer|exists:breaks,id', 
-        //     'kind_of_repair'        => 'required|in:PERBAIKAN,FASILITAS',
-        //     'description'           => 'max:255'
-        // ]);
-        
-        // if ($validator->fails())
-        //     return response()->json(['errors' => $validator->errors()->all()]);
-
-        // $data = $request->all();
-        
-        // UserRequest::create($data);
-        // return response()->json(['success' => 'Data berhasil ditambahkan']);
-
-
         $data = $request->all();
 
         $latest_request_id = UserRequest::create($data)->id;

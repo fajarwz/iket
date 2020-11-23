@@ -14,6 +14,10 @@ table thead th:last-child, td:last-child {
   border: 1px solid #e9ecef !important
 }
 
+.invalid-feedback {
+  display: block !important;
+}
+
 .form-check-input {
   margin-left: 0 !important;
 }

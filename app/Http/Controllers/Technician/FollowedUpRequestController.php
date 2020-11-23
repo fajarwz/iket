@@ -14,6 +14,7 @@ use App\Models\FollowedUpRequest;
 use App\Models\VerifiedRequest;
 
 use App\Http\Requests\User\RequestRequest;
+use App\Http\Requests\Technician\FollowedUpRequestRequest;
 
 use PDF;
 use DataTables;
@@ -57,7 +58,7 @@ class FollowedUpRequestController extends Controller
 
     public function edit($id) {
         $item           = FollowedUpRequest::findOrFail($id);
-        $technicians    = User::where('role', 'TECHNICIAN');
+        $technicians    = User::where('role', 'TECHNICIAN')->get();
 
         return view('pages.technician.followed_up_request.edit', [
             'item'          => $item,
@@ -66,6 +67,12 @@ class FollowedUpRequestController extends Controller
     }
 
     public function update(FollowedUpRequestRequest $request, $id) {
+        $data = $request->all();
 
+        $item = FollowedUpRequest::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('technician.f-up-request');
     }
 }

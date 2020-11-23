@@ -9,6 +9,9 @@ use App\Http\Controllers\User\RequestController;
 
 use App\Http\Controllers\Technician\TechnicianDashboardController;
 use App\Http\Controllers\Technician\FollowedUpRequestController;
+use App\Http\Controllers\Technician\BreakTypeController;
+use App\Http\Controllers\Technician\ComputerController;
+use App\Http\Controllers\Technician\DepartmentController;
 
 use App\Http\Controllers\Manager\ManagerDashboardController;
 
@@ -25,14 +28,7 @@ use App\Http\Controllers\Manager\ManagerDashboardController;
 
 Auth::routes(['register' => false, 'reset' => false]);
 
-// Route::group( ['middleware' => 'auth' ], function()
-// {
-//     Route::get('admin/index', 'AdminController@index');
-//     Route::get('admin/ajuda', 'AdminController@ajuda');
-// });
-
 Route::prefix('/')
-    ->namespace('User')
     ->middleware(['auth', 'is.user'])
     ->group(function(){
         Route::get('/', [UserDashboardController::class, 'index'])
@@ -50,7 +46,6 @@ Route::prefix('/')
     });
 
 Route::prefix('t')
-    ->namespace('Technician')
     ->middleware(['auth', 'is.technician'])
     ->group(function(){
         Route::get('/', [TechnicianDashboardController::class, 'index'])
@@ -63,12 +58,24 @@ Route::prefix('t')
         ->name('technician.f-up-request.show');
         Route::get('/f-up-request/edit/{id}', [FollowedUpRequestController::class, 'edit'])
         ->name('technician.f-up-request.edit');
-        Route::get('/f-up-request/update/{id}', [FollowedUpRequestController::class, 'update'])
+        Route::put('/f-up-request/update/{id}', [FollowedUpRequestController::class, 'update'])
         ->name('technician.f-up-request.update');
+
+        Route::resources([
+            'break-type'    => BreakTypeController::class,
+            'computer'      => ComputerController::class,
+            'department'    => DepartmentController::class
+        ]);
+
+        // Route::get('/break-type', [BreakTypeController::class, 'index'])
+        // ->name('technician.break_type');
+        // Route::get('/computer', [ComputerController::class, 'index'])
+        // ->name('technician.computer');
+        // Route::get('/department', [DepartmentController::class, 'index'])
+        // ->name('technician.department');
     });
 
 Route::prefix('m')
-    ->namespace('Manager')
     ->middleware(['auth', 'is.manager'])
     ->group(function(){
         Route::get('/', [ManagerDashboardController::class, 'index'])

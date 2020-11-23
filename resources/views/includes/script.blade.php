@@ -37,7 +37,7 @@
           serverSide: true,
           ajax: '{{ route('technician.f-up-request.json') }}',
           columns: [
-              {data: 'id', name: 'id'},
+              {data: 'request_id', name: 'request_id'},
               {data: 'user_request.request_created_date', name: 'user_request.request_created_date'},
               {data: 'user_request.client_name', name: 'user_request.client_name'},
               {data: 'user_request.break_type.id', name: 'user_request.break_type.id'},

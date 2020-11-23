@@ -56,7 +56,7 @@
                              <div class="form-group">
                                  <label for="computer_id" class="form-control-label">Komputer</label>
                                  <select name="computer_id" id="computer_id" class="custom-select form-control @error('computer_id') is-invalid @enderror" readonly>
-                                  <option value="{{ $item->user_request->computer->id }}" selected>{{ $item->user_request->computer->ip. ' (' .$item->user_request->computer->name. ')' }}</option>
+                                  <option value="{{ $item->user_request->computer->id }}" selected>{{ $item->user_request->computer->ip. ' (' .$item->user_request->computer->comp_name. ')' }}</option>
                                  </select>
                                  @error('computer_id')
                                      @include('includes.error-field')
@@ -95,7 +95,7 @@
                             <div class="form-group">
                                 <label for="target_date" class="form-control-label">Tanggal Target</label>
                                 <input type="text" class="form-control @error('target_date') is-invalid @enderror datepicker" name="target_date" id="target_date" placeholder=""
-                                    value="{{ $item->target_date }}" autofocus>
+                                    value="{{ ($item->target_date) ? $item->target_date : old('target_date') }}" autofocus>
                                 @error('target_date')
                                   @include('includes.error-field')
                                 @enderror
@@ -104,7 +104,7 @@
                             <div class="form-group">
                               <label for="target_completion_date" class="form-control-label">Tanggal Selesai</label>
                               <input type="text" class="form-control @error('target_completion_date') is-invalid @enderror datepicker" name="target_completion_date" id="target_completion_date" placeholder=""
-                                  value="{{ $item->target_completion_date }}">
+                                  value="{{ ($item->target_completion_date) ? $item->target_completion_date : old('target_completion_date') }}">
                               @error('target_completion_date')
                                 @include('includes.error-field')
                               @enderror
@@ -116,7 +116,7 @@
                                 <option value="" selected>Pilih Teknisi</option>
                                 @foreach ($technicians as $technician)
                                 <option value="{{ $technician->name }}" {{ $item->technician == $technician->name ? "selected" : "" }}>
-                                    {{ $technician->name }}</option>
+                                    {{ ($technician->name) ? $technician->name : old('technician') }}</option>
                                 @endforeach
                               </select>
                               @error('technician')
@@ -126,17 +126,19 @@
 
                             <div class="form-group">
                               <label for="is_done" class="form-control-label">Selesai/Batal</label>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="is_done" id="YES" value="YES" {{ $item->is_done == 'YES' ? "checked" : "" }}>
-                                <label class="form-check-label" for="YES">
-                                  SELESAI
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="is_done" id="CANCELED" value="CANCELED" {{ $item->is_done == 'CANCELED' ? "checked" : "" }}>
-                                <label class="form-check-label" for="CANCELED">
-                                  BATAL
-                                </label>
+                              <div class="form-control @error('is_done') is-invalid @enderror">
+                                <div class="form-check d-inline">
+                                  <input class="form-check-input" type="radio" name="is_done" id="YES" value="YES" {{ $item->is_done == 'YES' ? "checked" : "" }}>
+                                  <label class="form-check-label" for="YES">
+                                    SELESAI
+                                  </label>
+                                </div>&nbsp;
+                                <div class="form-check d-inline">
+                                  <input class="form-check-input" type="radio" name="is_done" id="CANCELED" value="CANCELED" {{ $item->is_done == 'CANCELED' ? "checked" : "" }}>
+                                  <label class="form-check-label" for="CANCELED">
+                                    BATAL
+                                  </label>
+                                </div>
                               </div>
                               @error('is_done')
                                   @include('includes.error-field')

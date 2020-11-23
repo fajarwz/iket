@@ -35,6 +35,14 @@
                      <span class="count-name">Request Hari Ini</span>
                  </div>
              </div>
+
+             <div class="col-md-3">
+                <div class="card-counter danger">
+                    <i class="fas fa-calendar"></i>
+                    <span class="count-numbers">{{ $req_not_finished_yet_today_count }}</span>
+                    <span class="count-name">Req. Blm Selesai Hari Ini</span>
+                </div>
+            </div>
  
              <div class="col-md-3">
                  <div class="card-counter primary">
@@ -43,6 +51,14 @@
                      <span class="count-name">Request Sepanjang Waktu</span>
                  </div>
              </div>
+
+             <div class="col-md-3">
+                <div class="card-counter danger">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="count-numbers">{{ $req_not_finished_yet_alltime_count }}</span>
+                    <span class="count-name">Rq Blm Slesai Spnjng Wkt</span>
+                </div>
+            </div>
  
          </div>
 
@@ -51,7 +67,7 @@
                <div class="card ">
                    <div class="card-header ">
                        <h4 class="card-title">Request Hari ini</h4>
-                       <p class="card-category">diambil dari 3 request teratas</p>
+                       <p class="card-category">diambil dari 3 request terbaru</p>
                    </div>
                    <div class="card-body ">
                        <div class="table-responsive overflow-auto">
@@ -113,7 +129,7 @@
                 <div class="card ">
                     <div class="card-header ">
                         <h4 class="card-title">Request Belum Selesai</h4>
-                        <p class="card-category">diambil dari 3 request teratas</p>
+                        <p class="card-category">diambil dari 3 request terbaru</p>
                     </div>
                     <div class="card-body ">
                         <div class="table-responsive overflow-auto">

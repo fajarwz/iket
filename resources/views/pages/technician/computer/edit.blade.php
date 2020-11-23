@@ -61,7 +61,7 @@
  
  @endsection
 
- @push('before-style')
+@push('before-style')
   <link rel="stylesheet" href="{{ asset('assets/gijgo/css/gijgo.min.css') }}">  
 @endpush
 

@@ -61,6 +61,9 @@ Route::prefix('t')
         Route::put('/f-up-request/update/{id}', [FollowedUpRequestController::class, 'update'])
         ->name('technician.f-up-request.update');
 
+        Route::get('/computer/json', [ComputerController::class, 'json'])
+        ->name('computer.json');
+
         Route::resources([
             'break-type'    => BreakTypeController::class,
             'computer'      => ComputerController::class,

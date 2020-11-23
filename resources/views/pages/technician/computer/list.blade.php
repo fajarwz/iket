@@ -35,34 +35,35 @@
                     </a>
 
                     <div class="table-responsive overflow-auto">
-                      <table class="table table-bordered" width="100%" cellspacing="0">
+                      <table class="table table-bordered" id="computer-table" width="100%" cellspacing="0">
                         <thead>
                           <tr>
-                            <th>No</th>
                             <th>IP Komputer</th>
                             <th>Nama Komputer</th>
+                            <th>Username</th>
                             <th>Action</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        {{-- <tbody>
                           @forelse ($items as $item)
                           <tr>
-                              <td>{{ $item->ip }}</td>
-                              <td>{{ $item->comp_name }}</td>
-                              <td>
-                                <a 
-                                  href="{{ route('computer.edit', $item->id) }}" 
-                                  class="btn btn-primary btn-sm mb-2" id="">
-                                  <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
-                                </a>
-                              </td>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $item->ip }}</td>
+                            <td>{{ $item->comp_name }}</td>
+                            <td>
+                              <a 
+                                href="{{ route('computer.edit', $item->id) }}" 
+                                class="btn btn-primary btn-sm mb-2" id="">
+                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
+                              </a>
+                            </td>
                           </tr>
                           @empty
                           <tr>
                             <td colspan="3">Tidak ada data yang dapat ditampilkan</td>
                           </tr>
                           @endforelse
-                        </tbody>
+                        </tbody> --}}
                       </table>
                     </div>
 
@@ -73,4 +74,20 @@
   </div>
 </div>
 
- @endsection 
+@endsection 
+
+@push('after-script')
+<script>
+  $('#computer-table').DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: '{{ route('computer.json') }}',
+    columns: [
+        {data: 'ip', name: 'ip'},
+        {data: 'comp_name', name: 'comp_name'},
+        {data: 'user_name', name: 'user_name'},
+        {data: 'action', name: 'action'} 
+    ]
+  });
+</script>
+@endpush

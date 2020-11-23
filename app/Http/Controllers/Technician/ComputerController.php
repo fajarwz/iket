@@ -10,8 +10,25 @@ use App\Models\Computer;
 
 use App\Http\Requests\Technician\ComputerRequest;
 
+use DataTables;
+
 class ComputerController extends Controller
 {
+    public function json() {
+        $data       = Computer::orderBy('ip', 'asc')->get();
+
+        return DataTables::of($data)
+        ->addColumn('action', function($data){
+               $btn = '<a 
+                href="'.$data->id.'/edit" 
+                class="btn btn-primary btn-sm mb-2" id="">
+                <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
+                </a>';
+
+                return $btn;
+        })
+        ->make(true);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,12 +36,7 @@ class ComputerController extends Controller
      */
     public function index()
     {
-        $no     = 1;
-        $items  = Computer::all();
-        return view('pages.technician.computer.list', [
-            'no'        => $no,
-            'items'     => $items 
-        ]);
+        return view('pages.technician.computer.list');
     }
 
     /**

@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label for="request_created_date" class="form-control-label">Tanggal Request</label>
                                 <input type="text" class="form-control" name="request_created_date" id="request_created_date" placeholder=""
-                                    value="{{ \Carbon\Carbon::today('Asia/Phnom_Penh')->toDateString() }}" readonly>
+                                    value="{{ \Carbon\Carbon::today()->toDateString() }}" readonly>
                             </div>
                         
                             <div class="form-group">
@@ -50,7 +50,7 @@
                                 <select name="department_id" id="department_id" class="custom-select form-control @error('department_id') is-invalid @enderror">
                                     <option value="" selected>Pilih Departemen</option>
                                     @foreach ($departments as $department)
-                                    <option value="{{ $department->id }}" {{ old("department_id") == $department->id ? "selected":"" }}>
+                                    <option value="{{ $department->dept_code }}" {{ old("department_id") == $department->dept_code ? "selected":"" }}>
                                         {{ $department->name }}</option>
                                     @endforeach
                                 </select>

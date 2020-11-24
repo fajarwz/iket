@@ -26,7 +26,7 @@ class RequestRequest extends FormRequest
         return [
             'request_created_date'  => 'required|date_format:Y-m-d|', 
             'client_name'           => 'required|max:100', 
-            'department_id'         => 'required|integer|exists:departments,id', 
+            'department_id'         => 'required|integer|exists:departments,dept_code', 
             'computer_id'           => 'required|integer|exists:computers,id', 
             'break_id'              => 'required|integer|exists:breaks,id', 
             'kind_of_repair'        => 'required|in:PERBAIKAN,FASILITAS',

@@ -33,7 +33,13 @@ class UsersTableSeeder extends Seeder
                 'email'     => 'man',
                 'password'  => Hash::make('man'),
                 'role'     => 'MANAGER'
-            ]
+            ],
+            [
+                'name'      => 'Fajar',
+                'email'     => 'fajar',
+                'password'  => Hash::make('fajar'),
+                'role'     => 'TECHNICIAN'
+            ],
         ]);
     }
 }

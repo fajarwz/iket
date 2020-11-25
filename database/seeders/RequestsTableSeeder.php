@@ -16,8 +16,7 @@ class RequestTableSeeder extends Seeder
      */
     public function run()
     {
-        // faker untuk Indonesia
-        $faker = Faker::create('id_ID');
+        $faker = Faker::create();
         
         for($i = 1 ; $i <= 3 ; $i++){
         	DB::table('requests')->insert([

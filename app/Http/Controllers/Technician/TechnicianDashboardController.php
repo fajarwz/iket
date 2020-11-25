@@ -37,7 +37,6 @@ class TechnicianDashboardController extends Controller
         })
         ->orderBy('created_at', 'desc')
         ->paginate(3);
-        // dd($req_today);
 
         $req_not_finished_yet = FollowedUpRequest::where('is_done', null)
         ->orderBy('created_at', 'desc')

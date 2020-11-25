@@ -23,7 +23,7 @@ class RequestController extends Controller
     public function json(){
         $data = UserRequest::with([
             'department', 'computer', 'break_type'
-        ])->orderBy('created_at', 'desc');
+        ]);
 
         return DataTables::of($data)
         ->addColumn('action', function($data){

@@ -73,7 +73,8 @@
         {data: 'ip', name: 'ip'},
         {data: 'comp_name', name: 'comp_name'},
         {data: 'action', name: 'action'} 
-    ]
+    ],
+    order: [0, 'asc']
   });
 </script>
 @endpush

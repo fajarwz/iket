@@ -15,7 +15,7 @@ use DataTables;
 class ComputerController extends Controller
 {
     public function json() {
-        $data       = Computer::orderBy('ip', 'asc')->get();
+        $data       = Computer::all();
 
         return DataTables::of($data)
         ->addColumn('action', function($data){

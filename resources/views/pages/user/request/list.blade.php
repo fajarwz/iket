@@ -85,7 +85,8 @@
             {data: 'kind_of_repair', name: 'kind_of_repair'},
             {data: 'description', name: 'description'},
             {data: 'action', name: 'action'} 
-        ]
+        ],
+        order: [0, 'desc']
     });
   })
 </script>

@@ -82,7 +82,8 @@
           {data: 'technician', name: 'technician'},
           {data: 'is_done', name: 'is_done'},
           {data: 'action', name: 'action'} 
-      ]
+      ],
+      order: [0, 'desc']
     });
   });
   </script>

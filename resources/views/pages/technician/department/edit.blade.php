@@ -64,25 +64,3 @@
  </div>
  
  @endsection
-
-@push('before-style')
-  <link rel="stylesheet" href="{{ asset('assets/gijgo/css/gijgo.min.css') }}">  
-@endpush
-
-@push('after-script')
-<script src="{{ asset('assets/gijgo/js/gijgo.min.js') }}"></script>
-
-<script>
-  $(document).ready(function () {    
-    $('.datepicker').each(function() {
-      $(this).datepicker({
-        format: 'yyyy-mm-dd',
-        uiLibrary: 'bootstrap4',
-        icons: {
-          rightIcon: '<i class="fas fa-calendar-alt"></i>'
-        }
-      })
-    })
-  });
-</script>
-@endpush

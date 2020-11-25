@@ -48,9 +48,6 @@
                                  <select name="department_id" id="department_id" class="custom-select form-control @error('department_id') is-invalid @enderror" readonly>
                                      <option value="{{ $item->user_request->department->id }}" selected>{{ $item->user_request->department->name }}</option>
                                   </select>
-                                 @error('department_id')
-                                     @include('includes.error-field')
-                                 @enderror
                              </div>
                          
                              <div class="form-group">
@@ -58,9 +55,6 @@
                                  <select name="computer_id" id="computer_id" class="custom-select form-control @error('computer_id') is-invalid @enderror" readonly>
                                   <option value="{{ $item->user_request->computer->id }}" selected>{{ $item->user_request->computer->ip. ' (' .$item->user_request->computer->comp_name. ')' }}</option>
                                  </select>
-                                 @error('computer_id')
-                                     @include('includes.error-field')
-                                 @enderror
                              </div>
                          
                              <div class="form-group">
@@ -68,9 +62,6 @@
                                  <select name="break_id" id="break_id" class="custom-select form-control @error('break_id') is-invalid @enderror" readonly>
                                      <option value="{{ $item->user_request->break_type->id }}" selected>{{ $item->user_request->break_type->name }}</option>
                                  </select>
-                                 @error('break_id')
-                                     @include('includes.error-field')
-                                 @enderror
                              </div>
                          
                              <div class="form-group">
@@ -78,23 +69,17 @@
                                  <select name="kind_of_repair" id="kind_of_repair" class="custom-select form-control @error('kind_of_repair') is-invalid @enderror" readonly>
                                      <option value="{{ $item->user_request->kind_of_repair }}" selected>{{ $item->user_request->kind_of_repair }}</option>
                                  </select>
-                                 @error('kind_of_repair')
-                                     @include('includes.error-field')
-                                 @enderror
                              </div>
                          
                              <div class="form-group">
                                  <label for="description" class="form-control-label">Deskripsi</label>
                                  <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Deskripsi"
-                                     rows="2" readonly>{{ $item->user_request->description }}</textarea>
-                                 @error('description')
-                                     @include('includes.error-field')
-                                 @enderror
+                                     rows="4" readonly>{{ $item->user_request->description }}</textarea>
                              </div>
 
                             <div class="form-group">
                                 <label for="target_date" class="form-control-label">Tanggal Target</label>
-                                <input type="text" class="form-control @error('target_date') is-invalid @enderror datepicker" name="target_date" id="target_date" placeholder=""
+                                <input type="date" class="form-control @error('target_date') is-invalid @enderror" name="target_date" id="target_date" placeholder=""
                                     value="{{ ($item->target_date) ? $item->target_date : old('target_date') }}" autofocus>
                                 @error('target_date')
                                   @include('includes.error-field')
@@ -103,7 +88,7 @@
 
                             <div class="form-group">
                               <label for="target_completion_date" class="form-control-label">Tanggal Selesai</label>
-                              <input type="text" class="form-control @error('target_completion_date') is-invalid @enderror datepicker" name="target_completion_date" id="target_completion_date" placeholder=""
+                              <input type="date" class="form-control @error('target_completion_date') is-invalid @enderror" name="target_completion_date" id="target_completion_date" placeholder=""
                                   value="{{ ($item->target_completion_date) ? $item->target_completion_date : old('target_completion_date') }}">
                               @error('target_completion_date')
                                 @include('includes.error-field')
@@ -115,8 +100,9 @@
                               <select name="technician" id="technician" class="custom-select form-control @error('technician') is-invalid @enderror">
                                 <option value="" selected>Pilih Teknisi</option>
                                 @foreach ($technicians as $technician)
-                                <option value="{{ $technician->name }}" {{ $item->technician == $technician->name ? "selected" : "" }}>
-                                    {{ ($technician->name) ? $technician->name : old('technician') }}</option>
+                                <option value="{{ $technician->name }}" 
+                                  {{ $item->technician == $technician->name || old('technician') == $technician->name ? "selected" : "" }}>
+                                  {{ ($technician->name) ? $technician->name : old('technician') }}</option>
                                 @endforeach
                               </select>
                               @error('technician')

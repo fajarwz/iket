@@ -40,7 +40,7 @@
                             <th>Tanggal Target</th>
                             <th>Tanggal Selesai</th>
                             <th>Teknisi</th>
-                            <th>Selesai/Cancel</th>
+                            <th>Selesai/Batal</th>
                             <th>Action</th>
                           </tr>
                         </thead>

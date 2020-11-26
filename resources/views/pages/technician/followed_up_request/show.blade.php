@@ -76,7 +76,7 @@
                             <td>{{ $item->technician }}</td>
                           </tr>
                           <tr>
-                            <th>Selesai/Cancel</th>
+                            <th>Selesai/Batal</th>
                             <td>
                               @if ($item->is_done == 'YES')
                                 <span class="badge badge-success">SELESAI</span>

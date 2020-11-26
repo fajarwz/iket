@@ -79,7 +79,7 @@
 
                             <div class="form-group">
                                 <label for="target_date" class="form-control-label">Tanggal Target</label>
-                                <input type="date" class="form-control @error('target_date') is-invalid @enderror" name="target_date" id="target_date" placeholder=""
+                                <input type="text" class="form-control datepicker @error('target_date') is-invalid @enderror" name="target_date" id="target_date" placeholder=""
                                     value="{{ ($item->target_date) ? $item->target_date : old('target_date') }}" autofocus>
                                 @error('target_date')
                                   @include('includes.error-field')
@@ -88,7 +88,7 @@
 
                             <div class="form-group">
                               <label for="target_completion_date" class="form-control-label">Tanggal Selesai</label>
-                              <input type="date" class="form-control @error('target_completion_date') is-invalid @enderror" name="target_completion_date" id="target_completion_date" placeholder=""
+                              <input type="text" class="form-control datepicker @error('target_completion_date') is-invalid @enderror" name="target_completion_date" id="target_completion_date" placeholder=""
                                   value="{{ ($item->target_completion_date) ? $item->target_completion_date : old('target_completion_date') }}">
                               @error('target_completion_date')
                                 @include('includes.error-field')

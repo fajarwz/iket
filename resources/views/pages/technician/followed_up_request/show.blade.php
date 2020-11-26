@@ -77,7 +77,13 @@
                           </tr>
                           <tr>
                             <th>Selesai/Cancel</th>
-                            <td>{{ $item->is_done }}</td>
+                            <td>
+                              @if ($item->is_done == 'YES')
+                                <span class="badge badge-success">SELESAI</span>
+                              @elseif ($item->is_done == 'CANCELED')
+                                <span class="badge badge-danger">BATAL</span>
+                              @endif
+                            </td>
                           </tr>
                           <tr>
                             <th></th>

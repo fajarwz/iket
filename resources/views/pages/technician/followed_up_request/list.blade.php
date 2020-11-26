@@ -75,12 +75,25 @@
           {data: 'request_id', name: 'request_id'},
           {data: 'user_request.request_created_date', name: 'user_request.request_created_date'},
           {data: 'user_request.client_name', name: 'user_request.client_name'},
-          {data: 'user_request.break_type.id', name: 'user_request.break_type.id'},
+          {data: 'user_request.break_type.name', name: 'user_request.break_type.name'},
           {data: 'user_request.description', name: 'user_request.description'},
           {data: 'target_date', name: 'target_date'},
           {data: 'target_completion_date', name: 'target_completion_date'},
           {data: 'technician', name: 'technician'},
-          {data: 'is_done', name: 'is_done'},
+          // {data: 'is_done', name: 'is_done'},
+          {
+            "data": "is_done",
+            "render": function ( data, type, row, meta ) {
+              // return '<a href="'+data+'">Download</a>';
+              if (data === 'YES'){
+                return '<span class="badge badge-success">SELESAI</span>';
+              } else if (data === 'CANCELED') {
+                return '<span class="badge badge-danger">BATAL</span>'; 
+              } else {
+                return '';
+              }
+            }
+          },
           {data: 'action', name: 'action'} 
       ],
       order: [0, 'desc']

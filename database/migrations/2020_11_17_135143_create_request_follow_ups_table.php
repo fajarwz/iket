@@ -19,7 +19,7 @@ class CreateRequestFollowUpsTable extends Migration
             $table->date('target_date')->nullable();
             $table->date('target_completion_date')->nullable();
             $table->string('technician', 100)->nullable();
-            $table->enum('is_done', ['YES', 'CANCELED'])->nullable();
+            $table->enum('is_done', ['BELUM SELESAI', 'SELESAI', 'BATAL'])->nullable()->default('BELUM SELESAI');
 
             $table->softDeletes();
             $table->timestamps();

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             ComputersTableSeeder::class,
             DepartmentsTableSeeder::class,
             RequestsTableSeeder::class,
+            FollowedUpRequestsTableSeeder::class,
+            VerifiedRequestsTableSeeder::class,
             UsersTableSeeder::class
         ]);
     }

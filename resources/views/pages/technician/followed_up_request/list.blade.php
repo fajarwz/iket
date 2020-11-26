@@ -85,10 +85,12 @@
             "data": "is_done",
             "render": function ( data, type, row, meta ) {
               // return '<a href="'+data+'">Download</a>';
-              if (data === 'YES'){
+              if (data === 'SELESAI'){
                 return '<span class="badge badge-success">SELESAI</span>';
-              } else if (data === 'CANCELED') {
+              } else if (data === 'BATAL') {
                 return '<span class="badge badge-danger">BATAL</span>'; 
+              } else if (data === 'BELUM SELESAI') {
+                return '<span class="badge badge-secondary">BELUM SELESAI</span>'; 
               } else {
                 return '';
               }

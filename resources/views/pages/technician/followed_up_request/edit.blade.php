@@ -114,14 +114,20 @@
                               <label for="is_done" class="form-control-label">Selesai/Batal</label>
                               <div class="form-control @error('is_done') is-invalid @enderror">
                                 <div class="form-check d-inline">
-                                  <input class="form-check-input" type="radio" name="is_done" id="YES" value="YES" {{ $item->is_done == 'YES' ? "checked" : "" }}>
-                                  <label class="form-check-label" for="YES">
+                                  <input class="form-check-input" type="radio" name="is_done" id="BELUM SELESAI" value="BELUM SELESAI" {{ $item->is_done == 'BELUM SELESAI' ? "checked" : "" }}>
+                                  <label class="form-check-label" for="BELUM SELESAI">
+                                    BELUM SELESAI
+                                  </label>
+                                </div>&nbsp;
+                                <div class="form-check d-inline">
+                                  <input class="form-check-input" type="radio" name="is_done" id="SELESAI" value="SELESAI" {{ $item->is_done == 'SELESAI' ? "checked" : "" }}>
+                                  <label class="form-check-label" for="SELESAI">
                                     SELESAI
                                   </label>
                                 </div>&nbsp;
                                 <div class="form-check d-inline">
-                                  <input class="form-check-input" type="radio" name="is_done" id="CANCELED" value="CANCELED" {{ $item->is_done == 'CANCELED' ? "checked" : "" }}>
-                                  <label class="form-check-label" for="CANCELED">
+                                  <input class="form-check-input" type="radio" name="is_done" id="BATAL" value="BATAL" {{ $item->is_done == 'BATAL' ? "checked" : "" }}>
+                                  <label class="form-check-label" for="BATAL">
                                     BATAL
                                   </label>
                                 </div>

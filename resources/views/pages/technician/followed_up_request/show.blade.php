@@ -78,10 +78,12 @@
                           <tr>
                             <th>Selesai/Batal</th>
                             <td>
-                              @if ($item->is_done == 'YES')
+                              @if ($item->is_done == 'SELESAI')
                                 <span class="badge badge-success">SELESAI</span>
-                              @elseif ($item->is_done == 'CANCELED')
+                              @elseif ($item->is_done == 'BATAL')
                                 <span class="badge badge-danger">BATAL</span>
+                              @elseif ($item->is_done == 'BELUM SELESAI')
+                                <span class="badge badge-secondary">BELUM SELESAI</span>
                               @endif
                             </td>
                           </tr>

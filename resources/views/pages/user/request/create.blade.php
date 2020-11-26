@@ -102,7 +102,7 @@
                             <div class="form-group">
                                 <label for="description" class="form-control-label">Deskripsi</label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Deskripsi"
-                                    rows="2">{{ old('description') }}</textarea>
+                                    rows="4">{{ old('description') }}</textarea>
                                 @error('description')
                                     @include('includes.error-field')
                                 @enderror

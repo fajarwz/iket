@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use Faker\Factory as Faker;
 
-class RequestTableSeeder extends Seeder
+class RequestsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

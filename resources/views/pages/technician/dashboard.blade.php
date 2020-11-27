@@ -12,120 +12,118 @@
 =========================================================
 
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
- @extends('layouts.app')
+@extends('layouts.app')
 
- @section('title', 'IKET - Technician Dashboard')
- 
- @section('content')
- <div class="content">
-     <div class="container-fluid container-dashboard">
+@section('title', 'IKET - Technician Dashboard')
 
-         <div class="row">
-             <div class="container">
+@section('content')
+<div class="content">
+    <div class="container-fluid container-dashboard">
+
+        <div class="row">
+            <div class="container">
                 <h3>&nbsp;Selamat Datang, {{ Auth::user()->name }}!</h3>
-             </div>
-         </div>
+            </div>
+        </div>
 
-         <div class="row">
- 
-             <div class="col-md-3">
-                 <div class="card-counter primary">
-                     <i class="fas fa-calendar"></i>
-                     <span class="count-numbers">{{ $req_today_count }}</span>
-                     <span class="count-name">Request Hari Ini</span>
-                 </div>
-             </div>
+        <div class="row">
 
-             <div class="col-md-3">
+            <div class="col-md-3">
+                <div class="card-counter primary">
+                    <i class="fas fa-calendar"></i>
+                    <span class="count-numbers">{{ $req_today_count }}</span>
+                    <span class="count-name">Request Hari Ini</span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
                 <div class="card-counter danger">
                     <i class="fas fa-calendar"></i>
                     <span class="count-numbers">{{ $req_not_finished_yet_today_count }}</span>
                     <span class="count-name">Req. Blm Selesai Hari Ini</span>
                 </div>
             </div>
- 
-             <div class="col-md-3">
-                 <div class="card-counter primary">
-                     <i class="fas fa-calendar-alt"></i>
-                     <span class="count-numbers">{{ $req_alltime_count }}</span>
-                     <span class="count-name">Request Sepanjang Waktu</span>
-                 </div>
-             </div>
 
-             <div class="col-md-3">
+            <div class="col-md-3">
+                <div class="card-counter primary">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="count-numbers">{{ $req_alltime_count }}</span>
+                    <span class="count-name">Request Sepanjang Waktu</span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
                 <div class="card-counter danger">
                     <i class="fas fa-calendar-alt"></i>
                     <span class="count-numbers">{{ $req_not_finished_yet_alltime_count }}</span>
                     <span class="count-name">Rq Blm Slesai Spnjng Wkt</span>
                 </div>
             </div>
- 
-         </div>
 
-         <div class="row">
+        </div>
+
+        <div class="row">
             <div class="col-12">
-               <div class="card ">
-                   <div class="card-header ">
-                       <h4 class="card-title">Request Hari ini</h4>
-                       <p class="card-category">diambil dari 3 request terbaru</p>
-                   </div>
-                   <div class="card-body ">
-                       <div class="table-responsive overflow-auto">
-                           <table class="table table-bordered" width="100%" cellspacing="0">
-                             <thead>
-                               <tr>
-                                 <th>ID Request</th>
-                                 <th>Tanggal Request</th>
-                                 <th>Nama Pemohon</th>
-                                 <th>Jenis Kerusakan</th>
-                                 <th>Deskripsi</th>
-                                 <th>Tanggal Target</th>
-                                 <th>Tanggal Selesai</th>
-                                 <th>Teknisi</th>
-                                 <th>Selesai/Cancel</th>
-                                 <th>Action</th>
-                               </tr>
-                             </thead>
-                             <tbody>
-                               @forelse ($req_today as $item)
-                               <tr>
-                                   <td>{{ $item->request_id }}</td>
-                                   <td>{{ $item->user_request->request_created_date }}</td>
-                                   <td>{{ $item->user_request->client_name }}</td>
-                                   <td>{{ $item->user_request->break_type->name }}</td>
-                                   <td>{{ $item->user_request->description }}</td>
-                                   <td>{{ $item->target_date }}</td>
-                                   <td>{{ $item->target_completion_date }}</td>
-                                   <td>{{ $item->technician }}</td>
-                                   <td>{{ $item->is_done }}</td>
-                                   <td>
-                                       <a 
-                                           href="{{ route('technician.f-up-request.show', $item->id) }}" 
-                                           class="btn btn-primary btn-sm mb-2" id="">
-                                           <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
-                                           </a>
-                                           <a 
-                                           href="{{ route('technician.f-up-request.edit', $item->id) }}" 
-                                           class="btn btn-primary btn-sm mb-2" id="">
-                                           <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
-                                       </a>
-                                   </td>
-                               </tr>                                    
-                               @empty
-                                   <tr>
-                                       <td class="text-center" colspan="10">Tidak ada data yang dapat ditampilkan</td>
-                                   </tr>
-                               @endforelse
-                             </tbody>
-                           </table>
-                         </div>
-                   </div>
-               </div>
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Request Hari ini</h4>
+                        <p class="card-category">diambil dari 3 request terbaru</p>
+                    </div>
+                    <div class="card-body ">
+                        <div class="table-responsive overflow-auto">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID Request</th>
+                                        <th>Tanggal Request</th>
+                                        <th>Nama Pemohon</th>
+                                        <th>Jenis Kerusakan</th>
+                                        <th>Deskripsi</th>
+                                        <th>Tanggal Target</th>
+                                        <th>Tanggal Selesai</th>
+                                        <th>Teknisi</th>
+                                        <th>Selesai/Cancel</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($req_today as $item)
+                                    <tr>
+                                        <td>{{ $item->request_id }}</td>
+                                        <td>{{ $item->user_request->request_created_date }}</td>
+                                        <td>{{ $item->user_request->client_name }}</td>
+                                        <td>{{ $item->user_request->break_type->name }}</td>
+                                        <td>{{ $item->user_request->description }}</td>
+                                        <td>{{ $item->target_date }}</td>
+                                        <td>{{ $item->target_completion_date }}</td>
+                                        <td>{{ $item->technician }}</td>
+                                        <td>{{ $item->is_done }}</td>
+                                        <td>
+                                            <a href="{{ route('technician.f-up-request.show', $item->id) }}"
+                                                class="btn btn-primary btn-sm mb-2" id="">
+                                                <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
+                                            </a>
+                                            <a href="{{ route('technician.f-up-request.edit', $item->id) }}"
+                                                class="btn btn-primary btn-sm mb-2" id="">
+                                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td class="text-center" colspan="10">Tidak ada data yang dapat ditampilkan</td>
+                                    </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-         <div class="row">
-             <div class="col-12">
+        <div class="row">
+            <div class="col-12">
                 <div class="card ">
                     <div class="card-header ">
                         <h4 class="card-title">Request Belum Selesai</h4>
@@ -134,58 +132,55 @@
                     <div class="card-body ">
                         <div class="table-responsive overflow-auto">
                             <table class="table table-bordered" width="100%" cellspacing="0">
-                              <thead>
-                                <tr>
-                                  <th>ID Request</th>
-                                  <th>Tanggal Request</th>
-                                  <th>Nama Pemohon</th>
-                                  <th>Jenis Kerusakan</th>
-                                  <th>Deskripsi</th>
-                                  <th>Tanggal Target</th>
-                                  <th>Tanggal Selesai</th>
-                                  <th>Teknisi</th>
-                                  <th>Selesai/Cancel</th>
-                                  <th>Action</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                @forelse ($req_not_finished_yet as $item)
-                                <tr>
-                                    <td>{{ $item->request_id }}</td>
-                                    <td>{{ $item->user_request->request_created_date }}</td>
-                                    <td>{{ $item->user_request->client_name }}</td>
-                                    <td>{{ $item->user_request->break_type->name }}</td>
-                                    <td>{{ $item->user_request->description }}</td>
-                                    <td>{{ $item->target_date }}</td>
-                                    <td>{{ $item->target_completion_date }}</td>
-                                    <td>{{ $item->technician }}</td>
-                                    <td>{{ $item->is_done }}</td>
-                                    <td>
-                                        <a 
-                                            href="{{ route('technician.f-up-request.show', $item->id) }}" 
-                                            class="btn btn-primary btn-sm mb-2" id="">
-                                            <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
+                                <thead>
+                                    <tr>
+                                        <th>ID Request</th>
+                                        <th>Tanggal Request</th>
+                                        <th>Nama Pemohon</th>
+                                        <th>Jenis Kerusakan</th>
+                                        <th>Deskripsi</th>
+                                        <th>Tanggal Target</th>
+                                        <th>Tanggal Selesai</th>
+                                        <th>Teknisi</th>
+                                        <th>Selesai/Cancel</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($req_not_finished_yet as $item)
+                                    <tr>
+                                        <td>{{ $item->request_id }}</td>
+                                        <td>{{ $item->user_request->request_created_date }}</td>
+                                        <td>{{ $item->user_request->client_name }}</td>
+                                        <td>{{ $item->user_request->break_type->name }}</td>
+                                        <td>{{ $item->user_request->description }}</td>
+                                        <td>{{ $item->target_date }}</td>
+                                        <td>{{ $item->target_completion_date }}</td>
+                                        <td>{{ $item->technician }}</td>
+                                        <td>{{ $item->is_done }}</td>
+                                        <td>
+                                            <a href="{{ route('technician.f-up-request.show', $item->id) }}"
+                                                class="btn btn-primary btn-sm mb-2" id="">
+                                                <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
                                             </a>
-                                            <a 
-                                            href="{{ route('technician.f-up-request.edit', $item->id) }}" 
-                                            class="btn btn-primary btn-sm mb-2" id="">
-                                            <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
-                                        </a>
-                                    </td>
-                                </tr>                                    
-                                @empty
+                                            <a href="{{ route('technician.f-up-request.edit', $item->id) }}"
+                                                class="btn btn-primary btn-sm mb-2" id="">
+                                                <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @empty
                                     <tr>
                                         <td class="text-center" colspan="10">Tidak ada data yang dapat ditampilkan</td>
                                     </tr>
-                                @endforelse
-                              </tbody>
+                                    @endforelse
+                                </tbody>
                             </table>
-                          </div>
+                        </div>
                     </div>
                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- @endsection
- 
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

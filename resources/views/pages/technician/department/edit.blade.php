@@ -13,54 +13,51 @@
 
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
 
- @extends('layouts.app')
+@extends('layouts.app')
 
- @section('title', 'IKET - Edit Department')
- 
- @section('content')
- <div class="content">
-     <div class="container-fluid">
-         <div class="row justify-content-center">
-             <div class="col-6">
-                 <div class="card ">
-                     <div class="card-header ">
-                         <h4 class="card-title">Edit Departemen</h4>
-                         <p class="card-category">Silakan isi form di bawah ini.</p>
-                     </div>
-                     <div class="card-body ">
-                         <form id="createForm" method="POST" action="{{ route('department.update', $item->id) }}">
-                            @method('PUT')   
+@section('title', 'IKET - Edit Department')
+
+@section('content')
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Edit Departemen</h4>
+                        <p class="card-category">Silakan isi form di bawah ini.</p>
+                    </div>
+                    <div class="card-body ">
+                        <form id="createForm" method="POST" action="{{ route('department.update', $item->id) }}">
+                            @method('PUT')
                             @csrf
-                             <div class="form-group">
-                              <label for="dept_code" class="form-control-label">Kode</label>
-                              <input type="text" class="form-control @error('dept_code') is-invalid @enderror" 
-                              name="dept_code" id="dept_code" 
-                              placeholder="Kode Departemen"
-                              value="{{ $item->dept_code }}" autofocus>
-                              @error('dept_code')
+                            <div class="form-group">
+                                <label for="dept_code" class="form-control-label">Kode</label>
+                                <input type="text" class="form-control @error('dept_code') is-invalid @enderror"
+                                    name="dept_code" id="dept_code" placeholder="Kode Departemen"
+                                    value="{{ $item->dept_code }}" autofocus>
+                                @error('dept_code')
                                 @include('includes.error-field')
-                              @enderror
+                                @enderror
                             </div>
-                         
-                             <div class="form-group">
-                              <label for="name" class="form-control-label">Nama</label>
-                              <input type="text" class="form-control @error('name') is-invalid @enderror" 
-                              name="name" id="name" 
-                              placeholder="Nama Departemen"
-                              value="{{ $item->name }}" >
-                              @error('name')
+
+                            <div class="form-group">
+                                <label for="name" class="form-control-label">Nama</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                                    id="name" placeholder="Nama Departemen" value="{{ $item->name }}">
+                                @error('name')
                                 @include('includes.error-field')
-                              @enderror
+                                @enderror
                             </div>
- 
-                             @include('includes.save-cancel-btn')
-                             
-                         </form>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- 
- @endsection
+
+                            @include('includes.save-cancel-btn')
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

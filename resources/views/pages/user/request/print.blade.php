@@ -172,10 +172,6 @@
                                         <td style="width: 50%; text-align:right">*: Harus ditandatangani</td>
                                     </tr>
                                 </table>
-                                <!-- <div style="display: flex; justify-content: space-between;">
-                                    <div style="width: 50%">&nbsp;ID: {{ $item->id }}</div> 
-                                    <div style="width: 50%">&nbsp;*: Harus ditandatangani</div> 
-                                </div> -->
                                 <table style="width: 100%;">
                                     <tbody>
                                         <tr>

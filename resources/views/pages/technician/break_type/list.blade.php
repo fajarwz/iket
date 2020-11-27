@@ -12,56 +12,54 @@
 =========================================================
 
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
- @extends('layouts.app')
+@extends('layouts.app')
 
- @section('title', 'IKET - Break Type List')
+@section('title', 'IKET - Break Type List')
 
- @section('content')
- <div class="content">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-12">
-              <div class="card ">
-                  <div class="card-header ">
-                      <h4 class="card-title">List Jenis Kerusakan</h4>
-                      <p class="card-category">yang terdaftar di sistem</p>
-                  </div>
-                  <div class="card-body ">
-
-                    <a 
-                      href="{{ route('break-type.create') }}" 
-                      class="btn btn-primary btn-sm mb-2">
-                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Buat Data Jenis Kerusakan
-                    </a>
-
-                    <div class="table-responsive overflow-auto">
-                      <table class="table table-bordered" width="100%" cellspacing="0">
-                        <thead>
-                          <tr>
-                            <th>No</th>
-                            <th>Nama Kerusakan</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @forelse ($items as $item)
-                            <tr>
-                              <td>{{ $no++ }}</td>
-                              <td>{{ $item->name }}</td>
-                            </tr>
-                          @empty
-                            <tr>
-                              <td colspan="2">Tidak ada data yang dapat ditampilkan</td>
-                            </tr>
-                          @endforelse
-                        </tbody>
-                      </table>
+@section('content')
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">List Jenis Kerusakan</h4>
+                        <p class="card-category">yang terdaftar di sistem</p>
                     </div>
+                    <div class="card-body ">
 
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                        <a href="{{ route('break-type.create') }}" class="btn btn-primary btn-sm mb-2">
+                            <i class="fas fa-plus"></i>&nbsp;&nbsp;Buat Data Jenis Kerusakan
+                        </a>
+
+                        <div class="table-responsive overflow-auto">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Kerusakan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($items as $item)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $item->name }}</td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td colspan="2">Tidak ada data yang dapat ditampilkan</td>
+                                    </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
- @endsection 
+@endsection

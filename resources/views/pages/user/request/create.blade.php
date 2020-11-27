@@ -32,84 +32,96 @@
                             @csrf
                             <div class="form-group">
                                 <label for="request_created_date" class="form-control-label">Tanggal Request</label>
-                                <input type="text" class="form-control" name="request_created_date" id="request_created_date" placeholder=""
+                                <input type="text" class="form-control" name="request_created_date"
+                                    id="request_created_date" placeholder=""
                                     value="{{ \Carbon\Carbon::today()->toDateString() }}" readonly>
                             </div>
-                        
+
                             <div class="form-group">
                                 <label for="client_name" class="form-control-label">Nama Pemohon</label>
-                                <input type="text" class="form-control @error('client_name') is-invalid @enderror" name="client_name" id="client_name" placeholder="Nama Pemohon"
+                                <input type="text" class="form-control @error('client_name') is-invalid @enderror"
+                                    name="client_name" id="client_name" placeholder="Nama Pemohon"
                                     value="{{ old('client_name') }}" autofocus>
                                 @error('client_name')
-                                    @include('includes.error-field')
+                                @include('includes.error-field')
                                 @enderror
                             </div>
-                        
+
                             <div class="form-group">
                                 <label for="department_id" class="form-control-label">Departemen</label>
-                                <select name="department_id" id="department_id" class="custom-select form-control @error('department_id') is-invalid @enderror">
+                                <select name="department_id" id="department_id"
+                                    class="custom-select form-control @error('department_id') is-invalid @enderror">
                                     <option value="" selected>Pilih Departemen</option>
                                     @foreach ($departments as $department)
-                                    <option value="{{ $department->dept_code }}" {{ old("department_id") == $department->dept_code ? "selected":"" }}>
+                                    <option value="{{ $department->dept_code }}"
+                                        {{ old("department_id") == $department->dept_code ? "selected":"" }}>
                                         {{ $department->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('department_id')
-                                    @include('includes.error-field')
+                                @include('includes.error-field')
                                 @enderror
                             </div>
-                        
+
                             <div class="form-group">
                                 <label for="computer_id" class="form-control-label">Komputer</label>
-                                <select name="computer_id" id="computer_id" class="custom-select form-control @error('computer_id') is-invalid @enderror">
+                                <select name="computer_id" id="computer_id"
+                                    class="custom-select form-control @error('computer_id') is-invalid @enderror">
                                     <option value="" selected>Pilih Komputer</option>
                                     @foreach ($computers as $computer)
-                                    <option value="{{ $computer->id }}" {{ old("computer_id") == $computer->id ? "selected":"" }}>
+                                    <option value="{{ $computer->id }}"
+                                        {{ old("computer_id") == $computer->id ? "selected":"" }}>
                                         {{ $computer->ip. ' (' .$computer->comp_name.')' }}</option>
                                     @endforeach
                                 </select>
                                 @error('computer_id')
-                                    @include('includes.error-field')
+                                @include('includes.error-field')
                                 @enderror
                             </div>
-                        
+
                             <div class="form-group">
                                 <label for="break_id" class="form-control-label">Jenis Kerusakan</label>
-                                <select name="break_id" id="break_id" class="custom-select form-control @error('break_id') is-invalid @enderror">
+                                <select name="break_id" id="break_id"
+                                    class="custom-select form-control @error('break_id') is-invalid @enderror">
                                     <option value="" selected>Pilih Jenis Kerusakan</option>
                                     @foreach ($break_types as $break_type)
-                                    <option value="{{ $break_type->id }}" {{ old("break_id") == $break_type->id ? "selected":"" }}>
+                                    <option value="{{ $break_type->id }}"
+                                        {{ old("break_id") == $break_type->id ? "selected":"" }}>
                                         {{ $break_type->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('break_id')
-                                    @include('includes.error-field')
+                                @include('includes.error-field')
                                 @enderror
                             </div>
-                        
+
                             <div class="form-group">
                                 <label for="kind_of_repair" class="form-control-label">Jenis Perbaikan</label>
-                                <select name="kind_of_repair" id="kind_of_repair" class="custom-select form-control @error('kind_of_repair') is-invalid @enderror">
+                                <select name="kind_of_repair" id="kind_of_repair"
+                                    class="custom-select form-control @error('kind_of_repair') is-invalid @enderror">
                                     <option value="" selected>Pilih Jenis Perbaikan</option>
-                                    <option value="PERBAIKAN" {{ old("kind_of_repair") == "PERBAIKAN" ? "selected":"" }}>PERBAIKAN</option>
-                                    <option value="FASILITAS" {{ old("kind_of_repair") == "FASILITAS" ? "selected":"" }}>FASILITAS</option>
+                                    <option value="PERBAIKAN"
+                                        {{ old("kind_of_repair") == "PERBAIKAN" ? "selected":"" }}>PERBAIKAN</option>
+                                    <option value="FASILITAS"
+                                        {{ old("kind_of_repair") == "FASILITAS" ? "selected":"" }}>FASILITAS</option>
                                 </select>
                                 @error('kind_of_repair')
-                                    @include('includes.error-field')
+                                @include('includes.error-field')
                                 @enderror
                             </div>
-                        
+
                             <div class="form-group">
                                 <label for="description" class="form-control-label">Deskripsi</label>
-                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Deskripsi"
+                                <textarea class="form-control @error('description') is-invalid @enderror"
+                                    name="description" id="description" placeholder="Deskripsi"
                                     rows="4">{{ old('description') }}</textarea>
                                 @error('description')
-                                    @include('includes.error-field')
+                                @include('includes.error-field')
                                 @enderror
-                            </div>    
+                            </div>
 
                             @include('includes.save-cancel-btn')
-                            
+
                         </form>
                     </div>
                 </div>

@@ -26,7 +26,7 @@ class VerifiedRequestController extends Controller
                 .csrf_field().
                 '<input type="hidden" name="_method" value="put" />
                 <input type="hidden" name="is_verified" value="BELUM">
-                    <button class="btn btn-success btn-sm">
+                    <button class="btn btn-primary btn-sm btn-checkbox">
                         <i class="fas fa-check"></i>
                     </button>
                 </form>';
@@ -35,8 +35,8 @@ class VerifiedRequestController extends Controller
                     .csrf_field().
                     '<input type="hidden" name="_method" value="put" />
                     <input type="hidden" name="is_verified" value="SUDAH">
-                    <button class="btn btn-danger btn-sm">
-                        <i class="fas fa-times"></i>
+                    <button class="btn btn-primary btn-sm btn-checkbox">
+
                     </button>
                 </form>';
             } else {

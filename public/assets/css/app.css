@@ -30,6 +30,11 @@ textarea.form-control {
   height: unset;
 }
 
+.btn-checkbox {
+  min-width: 10px;
+  min-height: 20px;
+}
+
 .modal-header {
   padding: 1rem !important;
   border-bottom: 1px solid #e9ecef !important;

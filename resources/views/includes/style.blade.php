@@ -1,5 +1,4 @@
-<!--     Fonts and icons     -->
-<link href="{{ asset('assets/css/font-family=Montserrat:400,700,200.css') }}" rel="stylesheet" />
+<!-- icons -->
 <link rel="stylesheet" href="{{ asset('assets/css/font-awesome/all.min.css') }}" />
 <!-- CSS Files -->
 <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />

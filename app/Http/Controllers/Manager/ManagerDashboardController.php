@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\UserRequest;
 use App\Models\FollowedUpRequest;
+use App\Models\VerifiedRequest;
 
 class ManagerDashboardController extends Controller
 {
@@ -32,17 +33,22 @@ class ManagerDashboardController extends Controller
         $req_alltime_count                  = UserRequest::count();
         $req_not_finished_yet_alltime_count = FollowedUpRequest::where('is_done', 'BELUM SELESAI')->count();
 
-        $req_today            = FollowedUpRequest::whereHas('user_request', function($query){
-            $query->where('request_created_date', date('Y-m-d'));
+        $req_today            = VerifiedRequest::whereHas('followed_up_request', function($query){
+            $query->whereHas('user_request', function($query2){
+                $query2->where('request_created_date', date('Y-m-d'));
+            });
         })
         ->orderBy('created_at', 'desc')
         ->paginate(3);
 
-        $req_not_finished_yet = FollowedUpRequest::where('is_done', 'BELUM SELESAI')
+        // $req_not_finished_yet = FollowedUpRequest::where('is_done', 'BELUM SELESAI')
+        $req_not_finished_yet = VerifiedRequest::whereHas('followed_up_request', function($query){
+            $query->where('is_done', 'BELUM SELESAI');
+        })
         ->orderBy('created_at', 'desc')
         ->paginate(3);
 
-        return view('pages.technician.dashboard', [
+        return view('pages.manager.dashboard', [
             'req_today_count'                   => $req_today_count,
             'req_not_finished_yet_today_count'  => $req_not_finished_yet_today_count,
             'req_alltime_count'                 => $req_alltime_count,

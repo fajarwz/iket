@@ -89,24 +89,40 @@
                                  <tbody>
                                      @forelse ($req_today as $item)
                                      <tr>
-                                         <td>{{ $item->request_id }}</td>
-                                         <td>{{ $item->user_request->request_created_date }}</td>
-                                         <td>{{ $item->user_request->client_name }}</td>
-                                         <td>{{ $item->user_request->break_type->name }}</td>
-                                         <td>{{ $item->user_request->description }}</td>
-                                         <td>{{ $item->target_date }}</td>
-                                         <td>{{ $item->target_completion_date }}</td>
-                                         <td>{{ $item->technician }}</td>
-                                         <td>{{ $item->is_done }}</td>
+                                         <td>{{ $item->followed_up_request->request_id }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->request_created_date }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->client_name }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->break_type->name }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->description }}</td>
+                                         <td>{{ $item->followed_up_request->target_date }}</td>
+                                         <td>{{ $item->followed_up_request->target_completion_date }}</td>
+                                         <td>{{ $item->followed_up_request->technician }}</td>
                                          <td>
-                                             <a href="{{ route('technician.f-up-request.show', $item->id) }}"
-                                                 class="btn btn-primary btn-sm mb-2" id="">
-                                                 <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
-                                             </a>
-                                             <a href="{{ route('technician.f-up-request.edit', $item->id) }}"
-                                                 class="btn btn-primary btn-sm mb-2" id="">
-                                                 <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
-                                             </a>
+                                            @if ($item->followed_up_request->is_done == 'SELESAI')
+                                                <span class="badge badge-success">
+                                            @elseif ($item->followed_up_request->is_done == 'BELUM SELESAI')
+                                                <span class="badge badge-secondary">
+                                            @elseif ($item->followed_up_request->is_done == 'BELUM BATAL')
+                                                <span class="badge badge-danger">
+                                            @endif
+                                            {{ $item->followed_up_request->is_done }}</span>
+                                        </td>
+                                         <td>
+                                            <form action="{{ route('manager.verified-request.verify', $item->id) }}" method="post" class="d-inline">
+                                                @csrf
+                                                @method('PUT')
+                                                @if ($item->is_verified == 'BELUM')
+                                                    <input type="hidden" name="is_verified" value="SUDAH"> 
+                                                    <button class="btn btn-primary btn-sm btn-checkbox">
+                                                        
+                                                    </button>
+                                                @elseif($item->is_verified == 'SUDAH')
+                                                    <input type="hidden" name="is_verified" value="SUDAH"> 
+                                                    <button class="btn btn-primary btn-sm btn-checkbox">
+                                                        <i class="fas fa-check"></i>  
+                                                    </button>
+                                                @endif
+                                            </form>
                                          </td>
                                      </tr>
                                      @empty
@@ -149,24 +165,40 @@
                                  <tbody>
                                      @forelse ($req_not_finished_yet as $item)
                                      <tr>
-                                         <td>{{ $item->request_id }}</td>
-                                         <td>{{ $item->user_request->request_created_date }}</td>
-                                         <td>{{ $item->user_request->client_name }}</td>
-                                         <td>{{ $item->user_request->break_type->name }}</td>
-                                         <td>{{ $item->user_request->description }}</td>
-                                         <td>{{ $item->target_date }}</td>
-                                         <td>{{ $item->target_completion_date }}</td>
-                                         <td>{{ $item->technician }}</td>
-                                         <td>{{ $item->is_done }}</td>
+                                         <td>{{ $item->followed_up_request->request_id }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->request_created_date }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->client_name }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->break_type->name }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->description }}</td>
+                                         <td>{{ $item->followed_up_request->target_date }}</td>
+                                         <td>{{ $item->followed_up_request->target_completion_date }}</td>
+                                         <td>{{ $item->followed_up_request->technician }}</td>
                                          <td>
-                                             <a href="{{ route('technician.f-up-request.show', $item->id) }}"
-                                                 class="btn btn-primary btn-sm mb-2" id="">
-                                                 <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
-                                             </a>
-                                             <a href="{{ route('technician.f-up-request.edit', $item->id) }}"
-                                                 class="btn btn-primary btn-sm mb-2" id="">
-                                                 <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
-                                             </a>
+                                            @if ($item->followed_up_request->is_done == 'SELESAI')
+                                                <span class="badge badge-success">
+                                            @elseif ($item->followed_up_request->is_done == 'BELUM SELESAI')
+                                                <span class="badge badge-secondary">
+                                            @elseif ($item->followed_up_request->is_done == 'BELUM BATAL')
+                                                <span class="badge badge-danger">
+                                            @endif
+                                            {{ $item->followed_up_request->is_done }}</span>
+                                        </td>
+                                         <td>
+                                            <form action="{{ route('manager.verified-request.verify', $item->id) }}" method="post" class="d-inline">
+                                                @csrf
+                                                @method('PUT')
+                                                @if ($item->is_verified == 'BELUM')
+                                                    <input type="hidden" name="is_verified" value="SUDAH"> 
+                                                    <button class="btn btn-primary btn-sm btn-checkbox">
+                                                        
+                                                    </button>
+                                                @elseif($item->is_verified == 'SUDAH')
+                                                    <input type="hidden" name="is_verified" value="BELUM"> 
+                                                    <button class="btn btn-primary btn-sm btn-checkbox">
+                                                        <i class="fas fa-check"></i>  
+                                                    </button>
+                                                @endif
+                                            </form>
                                          </td>
                                      </tr>
                                      @empty

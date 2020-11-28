@@ -44,7 +44,6 @@ class VerifiedRequestController extends Controller
             }
             return $result;
         })
-        // ->rawColumns(['is_verified_with_link'])
         ->make(true);
     }
     

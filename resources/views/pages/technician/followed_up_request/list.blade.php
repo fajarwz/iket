@@ -129,26 +129,4 @@
 </script>
 @endpush
 
-@if(Session::has('alert-success'))
-  @push('after-script')
-    {{-- bootstrap-notify  --}}
-    <script src="{{ asset('assets/js/plugins/bootstrap-notify.min.js') }}" type="text/javascript"></script>
-
-    <script>
-      $.notify(
-        {
-          // icon: "nc-icon nc-check-2",
-          message: "<strong>Sukses</strong> - Request berhasil diedit."
-        }, 
-        {
-            type: 'success',
-            timer: 2000,
-            placement: {
-                from: 'bottom',
-                align: 'left'
-            }
-        }
-      );
-    </script>
-    @endpush  
-@endif
+@include('includes.notification')

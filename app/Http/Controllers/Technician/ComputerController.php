@@ -59,7 +59,9 @@ class ComputerController extends Controller
     {
         $data = $request->all();
         
-        Computer::create($data);
+        if(Computer::create($data)) {
+            $request->session()->flash('alert-success-add', 'Komputer berhasil ditambahkan');
+        }
         return redirect()->route('computer.index');
     }
 
@@ -101,7 +103,9 @@ class ComputerController extends Controller
         $data = $request->all();
         $item = Computer::findOrFail($id);
 
-        $item->update($data);
+        if($item->update($data)) {
+            $request->session()->flash('alert-success-update', 'Komputer berhasil diupdate');
+        }
         return redirect()->route('computer.index');
     }
 

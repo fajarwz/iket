@@ -66,7 +66,9 @@ class FollowedUpRequestController extends Controller
 
         $item = FollowedUpRequest::findOrFail($id);
 
-        $item->update($data);
+        if($item->update($data)) {
+            $request->session()->flash('alert-success-update', 'Request berhasil diupdate');
+        }
 
         return redirect()->route('technician.f-up-request');
     }

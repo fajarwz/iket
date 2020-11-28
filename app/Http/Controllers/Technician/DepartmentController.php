@@ -47,7 +47,9 @@ class DepartmentController extends Controller
     {
         $data = $request->all();
         
-        Department::create($data);
+        if(Department::create($data)) {
+            $request->session()->flash('alert-success-add', 'Departemen berhasil ditambahkan');
+        }
         return redirect()->route('department.index');
     }
 
@@ -89,7 +91,10 @@ class DepartmentController extends Controller
         $data = $request->all();
         $item = Department::findOrFail($id);
 
-        $item->update($data);
+        if($item->update($data)) {
+            $request->session()->flash('alert-success-update', 'Departemen berhasil diupdate');
+        }
+        
         return redirect()->route('department.index');
     }
 

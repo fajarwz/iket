@@ -47,7 +47,9 @@ class BreakTypeController extends Controller
     {
         $data = $request->all();
         
-        BreakType::create($data);
+        if(BreakType::create($data)) {
+            $request->session()->flash('alert-success-add', 'Jenis Kerusakan berhasil ditambahkan');
+        }
         return redirect()->route('break-type.index');
     }
 

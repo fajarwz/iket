@@ -57,17 +57,24 @@ class RequestController extends Controller
     public function store(RequestRequest $request) {
         $data = $request->all();
 
+        // get latest request id and store it to requests table 
         $latest_request_id = UserRequest::create($data)->id;
 
         if($latest_request_id != null){
+            // store latest request id to followed up requests table 
             $latest_followed_up_request_id = FollowedUpRequest::create([
                                             'request_id'    => $latest_request_id
                                             ])->id;
 
             if($latest_followed_up_request_id != null) {
-                VerifiedRequest::create([
+                // store latest followed up request id to verified requests table and set it to BELUM TTD
+                $store_it_to_verified_req = VerifiedRequest::create([
                     'followed_up_request_id'    => $latest_followed_up_request_id 
                 ]);
+
+                if($store_it_to_verified_req) {
+                    $request->session()->flash('alert-success-add', 'Request berhasil ditambahkan');   
+                }
             }
         }
 

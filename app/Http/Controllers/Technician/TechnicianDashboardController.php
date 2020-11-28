@@ -22,7 +22,7 @@ class TechnicianDashboardController extends Controller
         $req_not_finished_yet_today_count   = FollowedUpRequest::whereHas('user_request', function($query) {
             $query->where([
                 ['request_created_date', '=', date('Y-m-d')],
-                ['is_done',                       '=', null]
+                ['is_done',              '=', 'BELUM SELESAI']
             ]);
         })->count();
 
@@ -38,7 +38,7 @@ class TechnicianDashboardController extends Controller
         ->orderBy('created_at', 'desc')
         ->paginate(3);
 
-        $req_not_finished_yet = FollowedUpRequest::where('is_done', null)
+        $req_not_finished_yet = FollowedUpRequest::where('is_done', 'BELUM SELESAI')
         ->orderBy('created_at', 'desc')
         ->paginate(3);
 

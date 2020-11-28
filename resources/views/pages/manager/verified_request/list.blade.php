@@ -129,3 +129,4 @@
  </script>
  @endpush
  
+ @include('includes.notification')

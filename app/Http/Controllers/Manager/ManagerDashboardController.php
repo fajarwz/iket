@@ -22,7 +22,7 @@ class ManagerDashboardController extends Controller
         $req_not_finished_yet_today_count   = FollowedUpRequest::whereHas('user_request', function($query) {
             $query->where([
                 ['request_created_date', '=', date('Y-m-d')],
-                ['is_done',                       '=', null]
+                ['is_done',              '=', 'BELUM SELESAI']
             ]);
         })->count();
 
@@ -30,7 +30,7 @@ class ManagerDashboardController extends Controller
         //     $query->where('users.id', $user->id);
         //  });
         $req_alltime_count                  = UserRequest::count();
-        $req_not_finished_yet_alltime_count = FollowedUpRequest::where('is_done', null)->count();
+        $req_not_finished_yet_alltime_count = FollowedUpRequest::where('is_done', 'BELUM SELESAI')->count();
 
         $req_today            = FollowedUpRequest::whereHas('user_request', function($query){
             $query->where('request_created_date', date('Y-m-d'));
@@ -38,7 +38,7 @@ class ManagerDashboardController extends Controller
         ->orderBy('created_at', 'desc')
         ->paginate(3);
 
-        $req_not_finished_yet = FollowedUpRequest::where('is_done', null)
+        $req_not_finished_yet = FollowedUpRequest::where('is_done', 'BELUM SELESAI')
         ->orderBy('created_at', 'desc')
         ->paginate(3);
 

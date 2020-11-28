@@ -97,7 +97,16 @@
                                         <td>{{ $item->target_date }}</td>
                                         <td>{{ $item->target_completion_date }}</td>
                                         <td>{{ $item->technician }}</td>
-                                        <td>{{ $item->is_done }}</td>
+                                        <td>
+                                            @if ($item->is_done == 'SELESAI')
+                                                <span class="badge badge-success">
+                                            @elseif ($item->is_done == 'BELUM SELESAI')
+                                                <span class="badge badge-secondary">
+                                            @elseif ($item->is_done == 'BELUM BATAL')
+                                                <span class="badge badge-danger">
+                                            @endif
+                                            {{ $item->is_done }}</span>
+                                        </td>
                                         <td>
                                             <a href="{{ route('technician.f-up-request.show', $item->id) }}"
                                                 class="btn btn-primary btn-sm mb-2" id="">
@@ -157,7 +166,9 @@
                                         <td>{{ $item->target_date }}</td>
                                         <td>{{ $item->target_completion_date }}</td>
                                         <td>{{ $item->technician }}</td>
-                                        <td>{{ $item->is_done }}</td>
+                                        <td>
+                                            <span class="badge badge-secondary">{{ $item->is_done }}</span>
+                                        </td>
                                         <td>
                                             <a href="{{ route('technician.f-up-request.show', $item->id) }}"
                                                 class="btn btn-primary btn-sm mb-2" id="">

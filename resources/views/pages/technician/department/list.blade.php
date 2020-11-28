@@ -70,3 +70,5 @@
 </div>
 
 @endsection
+
+@include('includes.notification')

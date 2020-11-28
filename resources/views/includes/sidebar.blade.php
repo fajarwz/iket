@@ -75,7 +75,7 @@ Tip 2: you can also add an image using data-image tag
 
             <li class="nav-item {{ request()->is('m/verified-request') ? 'active' : '' }}">
               <a class="nav-link" href="{{ route('manager.verified-request') }}">
-                  <i class="nc-icon nc-chart-pie-35"></i>
+                  <i class="nc-icon nc-check-2"></i>
                   <p>List Req. Diverifikasi</p>
               </a>
             </li>

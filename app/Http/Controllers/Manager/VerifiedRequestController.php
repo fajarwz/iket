@@ -57,7 +57,9 @@ class VerifiedRequestController extends Controller
 
         $item = VerifiedRequest::findOrFail($id);
 
-        $item->update($data);
+        if($item->update($data)) {
+            $request->session()->flash('alert-success-update', 'Request berhasil diupdate');
+        }
         return redirect()->route('manager.verified-request');
     }
 }

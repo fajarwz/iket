@@ -5,15 +5,10 @@ namespace App\Http\Controllers\Technician;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Department;
-use App\Models\Computer;
-use App\Models\BreakType;
 use App\Models\User;
 
 use App\Models\FollowedUpRequest;
-use App\Models\VerifiedRequest;
 
-use App\Http\Requests\User\RequestRequest;
 use App\Http\Requests\Technician\FollowedUpRequestRequest;
 
 use PDF;
@@ -24,7 +19,7 @@ class FollowedUpRequestController extends Controller
     public function json(){
         $data = FollowedUpRequest::with([
             'user_request', 'user_request.break_type'
-        ])->orderBy('created_at', 'desc');
+        ]);
 
         return DataTables::of($data)
         ->addColumn('action', function($data){

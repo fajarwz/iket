@@ -65,6 +65,22 @@ Tip 2: you can also add an image using data-image tag
             </li>
           @endif
 
+          @if (Auth::user()->role == 'MANAGER')
+            <li class="nav-item {{ request()->is('m') ? 'active' : '' }}">
+              <a class="nav-link" href="{{ route('manager.dashboard') }}">
+                  <i class="nc-icon nc-chart-pie-35"></i>
+                  <p>Dashboard</p>
+              </a>
+            </li>
+
+            <li class="nav-item {{ request()->is('m/verified-request') ? 'active' : '' }}">
+              <a class="nav-link" href="{{ route('manager.verified-request') }}">
+                  <i class="nc-icon nc-chart-pie-35"></i>
+                  <p>List Req. Diverifikasi</p>
+              </a>
+            </li>
+          @endif
+
       </ul>
   </div>
 </div>

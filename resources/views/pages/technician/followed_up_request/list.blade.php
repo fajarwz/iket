@@ -70,8 +70,7 @@
         $('#f-up-request-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('
-            technician.f - up - request.json ') }}',
+            ajax: '{{ route('technician.f-up-request.json') }}',
             columns: [{
                     data: 'request_id',
                     name: 'request_id'
@@ -104,11 +103,9 @@
                     data: 'technician',
                     name: 'technician'
                 },
-                // {data: 'is_done', name: 'is_done'},
                 {
                     "data": "is_done",
                     "render": function (data, type, row, meta) {
-                        // return '<a href="'+data+'">Download</a>';
                         if (data === 'SELESAI') {
                             return '<span class="badge badge-success">SELESAI</span>';
                         } else if (data === 'BATAL') {

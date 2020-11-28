@@ -66,8 +66,7 @@
     $('#computer-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route('
-        computer.json ') }}',
+        ajax: '{{ route('computer.json') }}',
         columns: [{
                 data: 'ip',
                 name: 'ip'

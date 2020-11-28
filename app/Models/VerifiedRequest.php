@@ -19,4 +19,8 @@ class VerifiedRequest extends Model
     protected $hidden = [
 
     ];
+
+    public function followed_up_request(){
+        return $this->hasOne(FollowedUpRequest::class, 'id', 'followed_up_request_id');
+    }
 }

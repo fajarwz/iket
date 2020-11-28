@@ -16,7 +16,7 @@ class CreateVerifiedRequestsTable extends Migration
         Schema::create('verified_requests', function (Blueprint $table) {
             $table->id();
             $table->integer('followed_up_request_id');
-            $table->enum('is_verified', ['YES', 'NOT YET'])->default('NOT YET')->nullable();
+            $table->enum('is_verified', ['SUDAH', 'BELUM'])->default('BELUM')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

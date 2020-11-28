@@ -14,6 +14,7 @@ use App\Http\Controllers\Technician\ComputerController;
 use App\Http\Controllers\Technician\DepartmentController;
 
 use App\Http\Controllers\Manager\ManagerDashboardController;
+use App\Http\Controllers\Manager\VerifiedRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,13 +73,6 @@ Route::prefix('t')
             'computer'      => ComputerController::class,
             'department'    => DepartmentController::class
         ]);
-
-        // Route::get('/break-type', [BreakTypeController::class, 'index'])
-        // ->name('technician.break_type');
-        // Route::get('/computer', [ComputerController::class, 'index'])
-        // ->name('technician.computer');
-        // Route::get('/department', [DepartmentController::class, 'index'])
-        // ->name('technician.department');
     });
 
 Route::prefix('m')
@@ -86,4 +80,10 @@ Route::prefix('m')
     ->group(function(){
         Route::get('/', [ManagerDashboardController::class, 'index'])
         ->name('manager.dashboard');
+        Route::get('/verified-request', [VerifiedRequestController::class, 'index'])
+        ->name('manager.verified-request');
+        Route::get('/verified-request/json', [VerifiedRequestController::class, 'json'])
+        ->name('manager.verified-request.json');
+        Route::put('/verified-request/verify/{id}', [VerifiedRequestController::class, 'verify'])
+        ->name('manager.verified-request.verify');
     });

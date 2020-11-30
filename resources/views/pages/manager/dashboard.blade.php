@@ -74,15 +74,16 @@
                              <table class="table table-bordered" width="100%" cellspacing="0">
                                  <thead>
                                      <tr>
-                                         <th>ID Request</th>
-                                         <th>Tanggal Request</th>
-                                         <th>Nama Pemohon</th>
+                                         <th>ID Req.</th>
+                                         <th>Tgl Req.</th>
+                                         <th>Pemohon</th>
                                          <th>Jenis Kerusakan</th>
                                          <th>Deskripsi</th>
-                                         <th>Tanggal Target</th>
-                                         <th>Tanggal Selesai</th>
+                                         <th>Tgl Target</th>
+                                         <th>Tgl Selesai</th>
                                          <th>Teknisi</th>
                                          <th>Status</th>
+                                         <th>Catatan Teknisi</th>
                                          <th>Action</th>
                                      </tr>
                                  </thead>
@@ -107,6 +108,7 @@
                                             @endif
                                             {{ $item->followed_up_request->is_done }}</span>
                                         </td>
+                                        <td>{{ $item->followed_up_request->technician_note }}</td>
                                          <td>
                                             <form action="{{ route('manager.verified-request.verify', $item->id) }}" method="post" class="d-inline">
                                                 @csrf
@@ -150,15 +152,15 @@
                              <table class="table table-bordered" width="100%" cellspacing="0">
                                  <thead>
                                      <tr>
-                                         <th>ID Request</th>
-                                         <th>Tanggal Request</th>
-                                         <th>Nama Pemohon</th>
+                                         <th>ID Req.</th>
+                                         <th>Tgl Req.</th>
+                                         <th>Pemohon</th>
                                          <th>Jenis Kerusakan</th>
                                          <th>Deskripsi</th>
-                                         <th>Tanggal Target</th>
-                                         <th>Tanggal Selesai</th>
+                                         <th>Tgl Target</th>
+                                         <th>Tgl Selesai</th>
                                          <th>Teknisi</th>
-                                         <th>Selesai/Cancel</th>
+                                         <th>Status</th>
                                          <th>Action</th>
                                      </tr>
                                  </thead>
@@ -183,6 +185,7 @@
                                             @endif
                                             {{ $item->followed_up_request->is_done }}</span>
                                         </td>
+                                        <td>{{ $item->followed_up_request->technician_note }}</td>
                                          <td>
                                             <form action="{{ route('manager.verified-request.verify', $item->id) }}" method="post" class="d-inline">
                                                 @csrf

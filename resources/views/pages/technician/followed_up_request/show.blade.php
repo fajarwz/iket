@@ -40,7 +40,7 @@
                                         <td>{{ $item->user_request->request_created_date }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Nama Pemohon</th>
+                                        <th>Pemohon</th>
                                         <td>{{ $item->user_request->client_name }}</td>
                                     </tr>
                                     <tr>
@@ -76,7 +76,7 @@
                                         <td>{{ $item->technician }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Selesai/Batal</th>
+                                        <th>Status</th>
                                         <td>
                                             @if ($item->is_done == 'SELESAI')
                                             <span class="badge badge-success">SELESAI</span>
@@ -86,6 +86,10 @@
                                             <span class="badge badge-secondary">BELUM SELESAI</span>
                                             @endif
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Catatan Teknisi</th>
+                                        <td>{{ $item->technician_note }}</td>
                                     </tr>
                                     <tr>
                                         <th></th>

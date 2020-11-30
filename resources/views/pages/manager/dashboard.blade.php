@@ -82,7 +82,7 @@
                                          <th>Tanggal Target</th>
                                          <th>Tanggal Selesai</th>
                                          <th>Teknisi</th>
-                                         <th>Selesai/Cancel</th>
+                                         <th>Status</th>
                                          <th>Action</th>
                                      </tr>
                                  </thead>

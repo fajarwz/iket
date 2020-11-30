@@ -32,15 +32,16 @@
                              <table class="table table-bordered" id="verified-request-table" width="100%" cellspacing="0">
                                  <thead>
                                      <tr>
-                                         <th>ID Request</th>
-                                         <th>Tanggal Request</th>
-                                         <th>Nama Pemohon</th>
+                                         <th>ID Req.</th>
+                                         <th>Tgl Req.</th>
+                                         <th>Pemohon</th>
                                          <th>Jenis Kerusakan</th>
                                          <th>Deskripsi</th>
-                                         <th>Tanggal Target</th>
-                                         <th>Tanggal Selesai</th>
+                                         <th>Tgl Target</th>
+                                         <th>Tgl Selesai</th>
                                          <th>Teknisi</th>
-                                         <th>Selesai/Batal</th>
+                                         <th>Status</th>
+                                         <th>Catatan Teknisi</th>
                                          <th>TTD</th>
                                      </tr>
                                  </thead>
@@ -116,6 +117,10 @@
                              return '';
                          }
                      }
+                 },
+                 {
+                     data: 'followed_up_request.technician_note',
+                     name: 'followed_up_request.technician_note'
                  },
                  {
                      data: 'action',

@@ -24,14 +24,12 @@ class FollowedUpRequestRequest extends FormRequest
      */
     public function rules()
     {
-        // $request = User
-
-        // $hack_target_date_rule = date(User, strtotime('-1 days')
         return [
             'target_date'             => 'date_format:Y-m-d|after_or_equal:request_created_date', 
             'target_completion_date'  => 'date_format:Y-m-d|after_or_equal:target_date', 
             'technician'              => 'exists:users,name|max:100', 
             'is_done'                 => 'in:BELUM SELESAI,SELESAI,BATAL', 
+            'technician_note'         => 'max:255',
         ];
     }
 }

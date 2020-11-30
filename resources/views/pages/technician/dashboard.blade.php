@@ -74,15 +74,15 @@
                             <table class="table table-bordered" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID Request</th>
+                                        <th>ID Req.</th>
                                         <th>Tanggal Request</th>
-                                        <th>Nama Pemohon</th>
+                                        <th>Pemohon</th>
                                         <th>Jenis Kerusakan</th>
                                         <th>Deskripsi</th>
-                                        <th>Tanggal Target</th>
-                                        <th>Tanggal Selesai</th>
+                                        <th>Tgl Target</th>
+                                        <th>Tgl Selesai</th>
                                         <th>Teknisi</th>
-                                        <th>Selesai/Cancel</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -110,7 +110,7 @@
                                         <td>
                                             <a href="{{ route('technician.f-up-request.show', $item->id) }}"
                                                 class="btn btn-primary btn-sm mb-2" id="">
-                                                <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
+                                                <i class="fas fa-eye"></i>&nbsp;&nbsp;Detail
                                             </a>
                                             <a href="{{ route('technician.f-up-request.edit', $item->id) }}"
                                                 class="btn btn-primary btn-sm mb-2" id="">
@@ -143,15 +143,15 @@
                             <table class="table table-bordered" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID Request</th>
+                                        <th>ID Req.</th>
                                         <th>Tanggal Request</th>
-                                        <th>Nama Pemohon</th>
+                                        <th>Pemohon</th>
                                         <th>Jenis Kerusakan</th>
                                         <th>Deskripsi</th>
-                                        <th>Tanggal Target</th>
-                                        <th>Tanggal Selesai</th>
+                                        <th>Tgl Target</th>
+                                        <th>Tgl Selesai</th>
                                         <th>Teknisi</th>
-                                        <th>Selesai/Cancel</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -172,7 +172,7 @@
                                         <td>
                                             <a href="{{ route('technician.f-up-request.show', $item->id) }}"
                                                 class="btn btn-primary btn-sm mb-2" id="">
-                                                <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
+                                                <i class="fas fa-eye"></i>&nbsp;&nbsp;Detail
                                             </a>
                                             <a href="{{ route('technician.f-up-request.edit', $item->id) }}"
                                                 class="btn btn-primary btn-sm mb-2" id="">

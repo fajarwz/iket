@@ -9,8 +9,8 @@
         padding: 2px;
     }
 
-    .description {
-        height: 70px;
+    .description,.note {
+        height: 50px;
         border: 1px solid black;
         vertical-align: top
     }
@@ -110,6 +110,19 @@
                                             <td class="description">
                                                 Deskripsi : <br>
                                                 {{ $item->description }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 266px;">
+                                <table style="width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="note">
+                                                Catatan Teknisi : <br>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -223,6 +236,19 @@
                                             <td class="description">
                                                 Deskripsi : <br>
                                                 {{ $item->description }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 266px;">
+                                <table style="width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="note">
+                                                Catatan Teknisi : <br>
                                             </td>
                                         </tr>
                                     </tbody>

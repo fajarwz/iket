@@ -26,7 +26,7 @@ class FollowedUpRequestController extends Controller
                $btn = '<a 
                 href="f-up-request/show/'.$data->id.'" 
                 class="btn btn-primary btn-sm mb-2" id="">
-                <i class="fas fa-eye"></i>&nbsp;&nbsp;Lihat
+                <i class="fas fa-eye"></i>&nbsp;&nbsp;Detail
                 </a>
                 <a 
                 href="f-up-request/edit/'.$data->id.'" 

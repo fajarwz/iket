@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="client_name" class="form-control-label">Nama Pemohon</label>
+                                <label for="client_name" class="form-control-label">Pemohon</label>
                                 <input type="text" class="form-control @error('client_name') is-invalid @enderror"
                                     name="client_name" id="client_name" placeholder="Nama Pemohon"
                                     value="{{ $item->user_request->client_name }}" readonly>
@@ -133,7 +133,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="is_done" class="form-control-label">Selesai/Batal</label>
+                                <label for="is_done" class="form-control-label">Status</label>
                                 <div class="form-control @error('is_done') is-invalid @enderror">
                                     <div class="form-check d-inline">
                                         <input class="form-check-input" type="radio" name="is_done" id="BELUM SELESAI"
@@ -145,20 +145,32 @@
                                     </div>&nbsp;
                                     <div class="form-check d-inline">
                                         <input class="form-check-input" type="radio" name="is_done" id="SELESAI"
-                                            value="SELESAI" {{ $item->is_done == 'SELESAI' ? "checked" : "" }}>
+                                            value="SELESAI" 
+                                            {{ $item->is_done == 'SELESAI' ? "checked" : "" }}>
                                         <label class="form-check-label" for="SELESAI">
                                             SELESAI
                                         </label>
                                     </div>&nbsp;
                                     <div class="form-check d-inline">
                                         <input class="form-check-input" type="radio" name="is_done" id="BATAL"
-                                            value="BATAL" {{ $item->is_done == 'BATAL' ? "checked" : "" }}>
+                                            value="BATAL" 
+                                            {{ $item->is_done == 'BATAL' ? "checked" : "" }}>
                                         <label class="form-check-label" for="BATAL">
                                             BATAL
                                         </label>
                                     </div>
                                 </div>
                                 @error('is_done')
+                                @include('includes.error-field')
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="technician_note" class="form-control-label">Catatan Teknisi</label>
+                                <textarea class="form-control @error('technician_note') is-invalid @enderror"
+                                    name="technician_note" id="technician_note" placeholder="Catatan Teknisi"
+                                    rows="4">{{ old('technician_note') }}</textarea>
+                                @error('technician_note')
                                 @include('includes.error-field')
                                 @enderror
                             </div>

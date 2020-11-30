@@ -16,6 +16,7 @@ class FollowedUpRequest extends Model
         'target_date', 
         'target_completion_date',
         'technician',
+        'technician_note',
         'is_done'
     ];
 

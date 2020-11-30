@@ -93,6 +93,15 @@
                                     readonly>{{ $item->user_request->description }}</textarea>
                             </div>
 
+                            <hr>
+
+                            <div class="form-group">
+                                <label for="technician" class="form-control-label">Teknisi</label>
+                                <input type="text" class="form-control @error('technician') is-invalid @enderror"
+                                    name="technician" id="technician"
+                                    value="{{ Auth::user()->name }}" readonly>
+                            </div>
+
                             <div class="form-group">
                                 <label for="target_date" class="form-control-label">Tanggal Target</label>
                                 <input type="text"
@@ -112,22 +121,6 @@
                                     name="target_completion_date" id="target_completion_date" placeholder=""
                                     value="{{ ($item->target_completion_date) ? $item->target_completion_date : old('target_completion_date') }}">
                                 @error('target_completion_date')
-                                @include('includes.error-field')
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="technician" class="form-control-label">Teknisi</label>
-                                <select name="technician" id="technician"
-                                    class="custom-select form-control @error('technician') is-invalid @enderror">
-                                    <option value="" selected>Pilih Teknisi</option>
-                                    @foreach ($technicians as $technician)
-                                    <option value="{{ $technician->name }}"
-                                        {{ $item->technician == $technician->name || old('technician') == $technician->name ? "selected" : "" }}>
-                                        {{ ($technician->name) ? $technician->name : old('technician') }}</option>
-                                    @endforeach
-                                </select>
-                                @error('technician')
                                 @include('includes.error-field')
                                 @enderror
                             </div>

@@ -32,6 +32,9 @@
                             action="{{ route('user.update', $item->id) }}">
                             @method('PUT')
                             @csrf
+
+                            <input type="hidden" name="is_edit" id="is_edit" value="true"/>
+
                             <div class="form-group">
                                 <label for="username" class="form-control-label">Username</label>
                                 <input type="text" class="form-control" name="username"

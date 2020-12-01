@@ -24,10 +24,10 @@ class TechAddUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'                  => 'required|string|max:100', 
-            'username'              => 'required_without:old_username|string|max:100',
-            'password'              => 'required_without:old_password|string|max:100|min:3',
-            'confirm_password'      => 'required_without:old_password|string|max:100|min:3|same:password',
+            'name'                  => 'required|string|min:2|max:100',
+            'username'              => 'required_without:is_edit|string|min:2|max:100',
+            'password'              => 'required_without:is_edit|string|max:100|min:3',
+            'confirm_password'      => 'required_without:is_edit|string|max:100|min:3|same:password',
             'dept_code'             => 'required|integer', 
             'role'                  => 'in:USER'
         ];

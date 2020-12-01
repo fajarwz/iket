@@ -45,7 +45,7 @@
                                 <label for="password" class="form-control-label">Password</label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" 
                                     name="password" id="password" placeholder="Password" 
-                                    value="{{ old('password') }}">
+                                    value="">
                                 @error('password')
                                 @include('includes.error-field')
                                 @enderror
@@ -55,7 +55,7 @@
                                 <label for="confirm_password" class="form-control-label">Confirm Password</label>
                                 <input type="password" class="form-control @error('confirm_password') is-invalid @enderror" 
                                     name="confirm_password" id="confirm_password" placeholder="Confirm Password" 
-                                    value="{{ old('confirm_password') }}">
+                                    value="">
                                 @error('confirm_password')
                                 @include('includes.error-field')
                                 @enderror

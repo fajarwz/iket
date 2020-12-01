@@ -25,10 +25,10 @@ class TechAddUserRequest extends FormRequest
     {
         return [
             'name'                  => 'required|string|min:2|max:100',
-            'username'              => 'required_without:is_edit|string|min:2|max:100',
-            'password'              => 'required_without:is_edit|string|max:100|min:3',
-            'confirm_password'      => 'required_without:is_edit|string|max:100|min:3|same:password',
-            'dept_code'             => 'required|integer', 
+            'username'              => 'exclude_if:is_edit,true|required|string|min:2|max:100|unique:users,username',
+            'password'              => 'exclude_if:is_edit,true|required|string|min:2|max:100',
+            'confirm_password'      => 'exclude_if:is_edit,true|required|string|min:2|max:100|same:password',
+            'dept_code'             => 'required|integer|exists:departments,dept_code', 
             'role'                  => 'in:USER'
         ];
     }

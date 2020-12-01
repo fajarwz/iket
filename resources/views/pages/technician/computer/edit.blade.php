@@ -31,10 +31,13 @@
                         <form id="createForm" method="POST" action="{{ route('computer.update', $item->id) }}">
                             @method('PUT')
                             @csrf
+
+                            <input type="hidden" name="is_edit" value="true">
+
                             <div class="form-group">
                                 <label for="ip" class="form-control-label">IP Komputer</label>
                                 <input type="text" class="form-control @error('comp_name') is-invalid @enderror"
-                                    name="ip" id="ip" placeholder="" value="{{ $item->ip }}" autofocus>
+                                    name="ip" id="ip" placeholder="" value="{{ $item->ip }}" readonly>
                                 @error('ip')
                                 @include('includes.error-field')
                                 @enderror
@@ -44,7 +47,7 @@
                                 <label for="comp_name" class="form-control-label">Nama Komputer</label>
                                 <input type="text" class="form-control @error('comp_name') is-invalid @enderror"
                                     name="comp_name" id="comp_name" placeholder="Nama Komputer"
-                                    value="{{ $item->comp_name }}">
+                                    value="{{ $item->comp_name }}" autofocus>
                                 @error('comp_name')
                                 @include('includes.error-field')
                                 @enderror

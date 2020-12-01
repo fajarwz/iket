@@ -24,7 +24,7 @@ class DepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'dept_code'     => 'required|max:100', 
+            'dept_code'     => 'exclude_if:is_edit,true|required|unique:departments,dept_code|max:100', 
             'name'          => 'required|max:100'
         ];
     }

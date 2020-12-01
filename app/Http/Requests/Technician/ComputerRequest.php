@@ -24,7 +24,7 @@ class ComputerRequest extends FormRequest
     public function rules()
     {
         return [
-            'ip'            => 'required|max:100|ipv4', 
+            'ip'            => 'exclude_if:is_edit,true|required|ipv4|unique:computers,ip',
             'comp_name'     => 'required|max:100'
         ];
     }

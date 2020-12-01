@@ -31,11 +31,14 @@
                         <form id="createForm" method="POST" action="{{ route('department.update', $item->id) }}">
                             @method('PUT')
                             @csrf
+
+                            <input type="hidden" name="is_edit" value="true"/>
+
                             <div class="form-group">
                                 <label for="dept_code" class="form-control-label">Kode</label>
                                 <input type="text" class="form-control @error('dept_code') is-invalid @enderror"
                                     name="dept_code" id="dept_code" placeholder="Kode Departemen"
-                                    value="{{ $item->dept_code }}" autofocus>
+                                    value="{{ $item->dept_code }}" readonly>
                                 @error('dept_code')
                                 @include('includes.error-field')
                                 @enderror
@@ -44,7 +47,7 @@
                             <div class="form-group">
                                 <label for="name" class="form-control-label">Nama</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                    id="name" placeholder="Nama Departemen" value="{{ $item->name }}">
+                                    id="name" placeholder="Nama Departemen" value="{{ $item->name }}" autofocus>
                                 @error('name')
                                 @include('includes.error-field')
                                 @enderror

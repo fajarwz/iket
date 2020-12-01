@@ -73,7 +73,7 @@ class UserController extends Controller
     }
 
     public function update(TechAddUserRequest $request, $id) {
-        $data = $request->all();
+        $data = $request->except('username');
         $item = User::findOrFail($id);
 
         if($item->update($data)) {

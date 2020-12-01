@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="ip" class="form-control-label">IP Komputer</label>
                                 <input type="text" class="form-control @error('ip') is-invalid @enderror" name="ip"
-                                    id="ip" placeholder="Nama Komputer" value="{{ old('ip') }}" autofocus>
+                                    id="ip" placeholder="XXX.XXX.XXX.XXX" value="{{ old('ip') }}" autofocus>
                                 @error('ip')
                                 @include('includes.error-field')
                                 @enderror

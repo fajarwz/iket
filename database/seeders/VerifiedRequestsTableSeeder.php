@@ -19,15 +19,15 @@ class VerifiedRequestsTableSeeder extends Seeder
         DB::table('verified_requests')->insert([
             [
                 'followed_up_request_id'    => 1,
-                'is_verified'               => "NOT YET"
+                'is_verified'               => "BELUM"
             ],
             [
                 'followed_up_request_id'    => 2,
-                'is_verified'               => "NOT YET"
+                'is_verified'               => "BELUM"
             ],
             [
                 'followed_up_request_id'    => 3,
-                'is_verified'               => "NOT YET"
+                'is_verified'               => "BELUM"
             ],
         ]);
     }

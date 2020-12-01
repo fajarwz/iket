@@ -10,14 +10,15 @@ Sekarang req terrekam sebagai form fisik dan data digital di iket.
 
 ```
 composer install
-npm install
 php artisan migrate --seed
 ```
 copy .env.example ke .env\
 sesuaikan konfigurasi env seperti username dan password database dengan milikmu
 
 ### Jalankan Aplikasi
-`php artisan serve`
+```
+php artisan serve
+```
 
 ### User
 
@@ -38,3 +39,4 @@ by: fajarwz
 Kalau kamu suka ini mohon beri star ya...
 
 [Visit my Medium](http://fajarwz.medium.com)
+[Let's be friends](http://fb.me/fajarwz123)

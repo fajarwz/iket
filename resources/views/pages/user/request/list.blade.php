@@ -78,8 +78,8 @@
         columns: [
             {data: 'id', name: 'id'},
             {data: 'request_created_date', name: 'request_created_date'},
-            {data: 'client_name', name: 'client_name'},
-            {data: 'department.name', name: 'department.name'},
+            {data: 'user.name', name: 'user.name'},
+            {data: 'user.department.name', name: 'user.department.name'},
             {data: 'computer.ip', name: 'computer.ip'},
             {data: 'break_type.name', name: 'break_type.name'},
             {data: 'kind_of_repair', name: 'kind_of_repair'},

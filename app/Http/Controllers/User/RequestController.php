@@ -22,7 +22,7 @@ class RequestController extends Controller
 {
     public function json(){
         $data = UserRequest::with([
-            'department', 'computer', 'break_type'
+            'user', 'user.department', 'computer', 'break_type'
         ]);
 
         return DataTables::of($data)
@@ -55,7 +55,7 @@ class RequestController extends Controller
     }
 
     public function store(RequestRequest $request) {
-        $data = $request->all();
+        $data = $request->except(['client_name','dept_code']);
 
         // get latest request id and store it to requests table 
         $latest_request_id = UserRequest::create($data)->id;

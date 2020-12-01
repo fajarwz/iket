@@ -15,8 +15,7 @@ class UserRequest extends Model
 
     protected $fillable = [
         'request_created_date', 
-        'client_name', 
-        'department_id', 
+        'client_id', 
         'computer_id', 
         'break_id', 
         'kind_of_repair',
@@ -26,6 +25,10 @@ class UserRequest extends Model
     protected $hidden = [
 
     ];
+
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'client_id');
+    }
 
     public function break_type(){
         return $this->hasOne(BreakType::class, 'id', 'break_id');

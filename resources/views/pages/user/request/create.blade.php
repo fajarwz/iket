@@ -37,28 +37,29 @@
                                     value="{{ \Carbon\Carbon::today()->toDateString() }}" readonly>
                             </div>
 
+                            <input type="hidden" name="client_id" value="{{ Auth::user()->id }}">
+
                             <div class="form-group">
                                 <label for="client_name" class="form-control-label">Nama Pemohon</label>
                                 <input type="text" class="form-control @error('client_name') is-invalid @enderror"
                                     name="client_name" id="client_name" placeholder="Nama Pemohon"
-                                    value="{{ old('client_name') }}" autofocus>
+                                    value="{{ Auth::user()->name }}" readonly>
                                 @error('client_name')
                                 @include('includes.error-field')
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="department_id" class="form-control-label">Departemen</label>
-                                <select name="department_id" id="department_id"
-                                    class="custom-select form-control @error('department_id') is-invalid @enderror">
-                                    <option value="" selected>Pilih Departemen</option>
-                                    @foreach ($departments as $department)
-                                    <option value="{{ $department->dept_code }}"
-                                        {{ old("department_id") == $department->dept_code ? "selected":"" }}>
-                                        {{ $department->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('department_id')
+                                <label for="dept_code" class="form-control-label">Departemen</label>
+                                @foreach ($departments as $department)
+                                @if ($department->dept_code == Auth::user()->dept_code)
+                                    <input type="text" class="form-control @error('dept_code') is-invalid @enderror"
+                                        name="dept_code" id="dept_code" placeholder="Nama Departemen"
+                                        value="{{ $department->name }}" readonly>
+                                @endif
+                                @endforeach
+
+                                @error('dept_code')
                                 @include('includes.error-field')
                                 @enderror
                             </div>

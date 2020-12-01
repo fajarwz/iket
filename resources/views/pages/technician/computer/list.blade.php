@@ -80,7 +80,8 @@
                 name: 'action'
             }
         ],
-        order: [0, 'asc']
+        order: [0, 'asc'],
+        stateSave: true
     });
 
 </script>

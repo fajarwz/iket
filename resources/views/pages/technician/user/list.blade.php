@@ -90,7 +90,8 @@
                     name: 'action'
                 }
             ],
-            order: [1, 'asc']
+            order: [1, 'asc'],
+            stateSave: true
         });
     });
 

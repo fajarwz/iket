@@ -86,7 +86,8 @@
             {data: 'description', name: 'description'},
             {data: 'action', name: 'action'} 
         ],
-        order: [0, 'desc']
+        order: [0, 'desc'],
+        stateSave: true
     });
   })
 </script>

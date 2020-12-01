@@ -18,8 +18,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'username',
         'password',
+        'dept_code',
+        'role',
     ];
 
     /**
@@ -37,7 +39,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+
+    public function department(){
+        return $this->hasOne(Department::class, 'dept_code', 'dept_code');
+    }
 }

@@ -12,6 +12,7 @@ use App\Http\Controllers\Technician\FollowedUpRequestController;
 use App\Http\Controllers\Technician\BreakTypeController;
 use App\Http\Controllers\Technician\ComputerController;
 use App\Http\Controllers\Technician\DepartmentController;
+use App\Http\Controllers\Technician\UserController;
 
 use App\Http\Controllers\Manager\ManagerDashboardController;
 use App\Http\Controllers\Manager\VerifiedRequestController;
@@ -68,10 +69,14 @@ Route::prefix('t')
         Route::get('/computer/json', [ComputerController::class, 'json'])
         ->name('computer.json');
 
+        Route::get('/user/json', [UserController::class, 'json'])
+        ->name('user.json');
+
         Route::resources([
             'break-type'    => BreakTypeController::class,
             'computer'      => ComputerController::class,
-            'department'    => DepartmentController::class
+            'department'    => DepartmentController::class,
+            'user'          => UserController::class
         ]);
     });
 

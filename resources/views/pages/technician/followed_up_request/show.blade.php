@@ -24,7 +24,7 @@
                 <div class="card ">
                     <div class="card-header ">
                         <h4 class="card-title">Lihat Request Ditindaklanjuti</h4>
-                        <p class="card-category">Request dari {{ $item->user_request->client_name }}</p>
+                        <p class="card-category">Request dari {{ $item->user_request->user->name }}</p>
                     </div>
                     <div class="card-body ">
 
@@ -41,11 +41,11 @@
                                     </tr>
                                     <tr>
                                         <th>Pemohon</th>
-                                        <td>{{ $item->user_request->client_name }}</td>
+                                        <td>{{ $item->user_request->user->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Departemen</th>
-                                        <td>{{ $item->user_request->department->name }}</td>
+                                        <td>{{ $item->user_request->user->department->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>IP Komputer</th>

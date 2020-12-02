@@ -66,7 +66,7 @@ Tip 2: you can also add an image using data-image tag
 
             <li class="nav-item {{ request()->is('t/user') ? 'active' : '' }}">
               <a class="nav-link " href="{{ route('user.index') }}">
-                  <i class="nc-icon nc-vector"></i>
+                  <i class="nc-icon nc-circle-09"></i>
                   <p>List User</p>
               </a>
             </li>

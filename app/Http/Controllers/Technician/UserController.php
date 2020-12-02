@@ -17,7 +17,7 @@ use DataTables;
 class UserController extends Controller
 {
     public function json(){
-        $data = User::with([
+        $data = User::where('role', 'USER')->with([
             'department'
         ]);
 

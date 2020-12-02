@@ -67,7 +67,7 @@
                             <div class="form-group">
                                 <label for="computer_id" class="form-control-label">Komputer</label>
                                 <select name="computer_id" id="computer_id"
-                                    class="custom-select form-control @error('computer_id') is-invalid @enderror">
+                                    class="custom-select form-control @error('computer_id') is-invalid @enderror" autofocus>
                                     <option value="" selected>Pilih Komputer</option>
                                     @foreach ($computers as $computer)
                                     <option value="{{ $computer->id }}"

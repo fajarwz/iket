@@ -80,8 +80,8 @@
                     name: 'user_request.request_created_date'
                 },
                 {
-                    data: 'user_request.client_name',
-                    name: 'user_request.client_name'
+                    data: 'user_request.user.name',
+                    name: 'user_request.user.name'
                 },
                 {
                     data: 'user_request.break_type.name',

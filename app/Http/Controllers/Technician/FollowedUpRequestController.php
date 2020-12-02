@@ -18,7 +18,7 @@ class FollowedUpRequestController extends Controller
 {
     public function json(){
         $data = FollowedUpRequest::with([
-            'user_request', 'user_request.break_type'
+            'user_request.break_type', 'user_request.user',
         ]);
 
         return DataTables::of($data)

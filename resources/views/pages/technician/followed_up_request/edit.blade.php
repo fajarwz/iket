@@ -43,7 +43,7 @@
                                 <label for="client_name" class="form-control-label">Pemohon</label>
                                 <input type="text" class="form-control @error('client_name') is-invalid @enderror"
                                     name="client_name" id="client_name" placeholder="Nama Pemohon"
-                                    value="{{ $item->user_request->client_name }}" readonly>
+                                    value="{{ $item->user_request->user->name }}" readonly>
                             </div>
 
                             <div class="form-group">
@@ -51,8 +51,8 @@
                                 <select name="department_id" id="department_id"
                                     class="custom-select form-control @error('department_id') is-invalid @enderror"
                                     readonly>
-                                    <option value="{{ $item->user_request->department->id }}" selected>
-                                        {{ $item->user_request->department->name }}</option>
+                                    <option value="{{ $item->user_request->user->department->id }}" selected>
+                                        {{ $item->user_request->user->department->name }}</option>
                                 </select>
                             </div>
 

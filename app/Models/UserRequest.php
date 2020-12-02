@@ -38,10 +38,6 @@ class UserRequest extends Model
         return $this->hasOne(Computer::class, 'id', 'computer_id');
     }
 
-    public function department(){
-        return $this->hasOne(Department::class, 'dept_code', 'department_id');
-    }
-
     public function followed_up_request(){
         return $this->belongsTo(FollowedUpRequest::class, 'id', 'followed_up_request_id');
     }

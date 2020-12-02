@@ -55,21 +55,17 @@
                                         <td style="width: 50%; text-align:right">*: Harus ditandatangani</td>
                                     </tr>
                                 </table>
-                                <!-- <div style="display: flex; justify-content: space-between;">
-                                    <div style="width: 50%">&nbsp;ID: {{ $item->id }}</div> 
-                                    <div style="width: 50%">&nbsp;*: Harus ditandatangani</div> 
-                                </div> -->
                                 <table style="width: 100%;">
                                     <tbody>
                                         <tr>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Pemohon&nbsp; &nbsp; &nbsp;
-                                                &nbsp; &nbsp;: {{ $item->client_name }}</td>
+                                                &nbsp; &nbsp;: {{ $item->user->name }}</td>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Tgl. Target&nbsp; 
                                                 &nbsp; &nbsp; &nbsp;: </td>
                                         </tr>
                                         <tr>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Kode Dept&nbsp; &nbsp; 
-                                                &nbsp; &nbsp;: {{ $item->department_id }}</td>
+                                                &nbsp; &nbsp;: {{ $item->user->dept_code }}</td>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Tgl. Selesai&nbsp; 
                                                 &nbsp; &nbsp;: 
                                             </td>
@@ -170,7 +166,7 @@
                 </table>
             </td>
             <td style="width: 50%; height: 142px;">
-            <table style="width: 100%; height: 140px; border: 1px solid black;">
+                <table style="width: 100%; height: 140px; border: 1px solid black;">
                     <tbody>
                         <tr>
                             <td class="container-title">
@@ -189,13 +185,13 @@
                                     <tbody>
                                         <tr>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Pemohon&nbsp; &nbsp; &nbsp;
-                                                &nbsp; &nbsp;: {{ $item->client_name }}</td>
+                                                &nbsp; &nbsp;: {{ $item->user->name }}</td>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Tgl. Target&nbsp; 
                                                 &nbsp; &nbsp; &nbsp;: </td>
                                         </tr>
                                         <tr>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Kode Dept&nbsp; &nbsp; 
-                                                &nbsp; &nbsp;: {{ $item->department_id }}</td>
+                                                &nbsp; &nbsp;: {{ $item->user->dept_code }}</td>
                                             <td style="width: 50%; border: 1px solid black;">&nbsp;Tgl. Selesai&nbsp; 
                                                 &nbsp; &nbsp;: 
                                             </td>

@@ -15,14 +15,16 @@ use App\Models\VerifiedRequest;
 
 use App\Http\Requests\User\RequestRequest;
 
+use Illuminate\Support\Facades\Auth;
+
 use PDF;
 use DataTables;
 
 class RequestController extends Controller
 {
     public function json(){
-        $data = UserRequest::with([
-            'user', 'user.department', 'computer', 'break_type'
+        $data = UserRequest::where('client_id', Auth::user()->id)->with([
+            'user.department', 'computer', 'break_type'
         ]);
 
         return DataTables::of($data)
@@ -82,9 +84,7 @@ class RequestController extends Controller
     }
 
     public function printPreview($id) {
-        $item   = UserRequest::with([
-            'break_type'
-        ])->findOrFail($id);
+        $item   = UserRequest::findOrFail($id);
 
         $pdf = PDF::loadView('pages.user.request.print', [
             'item'  =>  $item 

@@ -15,8 +15,8 @@ class VerifiedRequestController extends Controller
 {
     public function json(){
         $data = VerifiedRequest::with([
-            'followed_up_request', 'followed_up_request.user_request',
-            'followed_up_request.user_request.break_type'
+            'followed_up_request.user_request.break_type',
+            'followed_up_request.user_request.user'
         ]);
 
         return DataTables::of($data)

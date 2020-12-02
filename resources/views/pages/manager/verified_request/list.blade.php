@@ -73,16 +73,16 @@
              serverSide: true,
              ajax: '{{ route('manager.verified-request.json') }}',
              columns: [{
-                     data: 'followed_up_request.request_id',
-                     name: 'followed_up_request.request_id'
+                     data: 'followed_up_request_id',
+                     name: 'followed_up_request_id'
                  },
                  {
                      data: 'followed_up_request.user_request.request_created_date',
                      name: 'followed_up_request.user_request.request_created_date'
                  },
                  {
-                     data: 'followed_up_request.user_request.client_name',
-                     name: 'followed_up_request.user_request.client_name'
+                     data: 'followed_up_request.user_request.user.name',
+                     name: 'followed_up_request.user_request.user.name'
                  },
                  {
                      data: 'followed_up_request.user_request.break_type.name',

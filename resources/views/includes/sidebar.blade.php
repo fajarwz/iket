@@ -86,6 +86,13 @@ Tip 2: you can also add an image using data-image tag
                   <p>List Req. Diverifikasi</p>
               </a>
             </li>
+
+            <li class="nav-item {{ request()->is('m/technician') ? 'active' : '' }}">
+              <a class="nav-link" href="{{ route('technician.index') }}">
+                  <i class="nc-icon nc-circle-09"></i>
+                  <p>List Teknisi</p>
+              </a>
+            </li>
           @endif
 
       </ul>

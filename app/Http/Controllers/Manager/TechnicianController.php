@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Technician;
+namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,23 +10,21 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Department;
 
-use App\Http\Requests\Technician\TechAddUserRequest;
+use App\Http\Requests\Manager\ManAddTechRequest;
 
 use DataTables;
 
-class UserController extends Controller
+class TechnicianController extends Controller
 {
     public function json(){
-        $data = User::where('role', 'USER')->with([
-            'department'
-        ]);
+        $data = User::where('role', 'TECHNICIAN');
 
         return DataTables::of($data)
         ->addIndexColumn()
         ->addColumn('action', function($data){
                $btn = '
                 <a 
-                href="user/'.$data->id.'/edit" 
+                href="technician/'.$data->id.'/edit" 
                 class="btn btn-primary btn-sm mb-2" id="">
                 <i class="fas fa-edit"></i>&nbsp;&nbsp;Edit
                 </a>';
@@ -37,26 +35,23 @@ class UserController extends Controller
     }
 
     public function index() {
-        return view('pages.technician.user.list');
+        return view('pages.manager.technician.list');
     }
 
     public function create() {
-        $departments = Department::all();
-
-        return view('pages.technician.user.create', [
-            'departments'   => $departments
-        ]);
+        return view('pages.manager.technician.create');
     }
 
-    public function store(TechAddUserRequest $request) {
+    public function store(ManAddTechRequest $request) {
         $data               = $request->except('confirm_password');
         $data['password']   = Hash::make($data['password']);
-        $data['role']       = 'USER';
+        $data['role']       = 'TECHNICIAN';
+        $data['dept_code']  = '3300';
         
         if(User::create($data)) {
-            $request->session()->flash('alert-success-add', 'User berhasil ditambahkan');
+            $request->session()->flash('alert-success-add', 'Teknisi berhasil ditambahkan');
         }
-        return redirect()->route('user.index');
+        return redirect()->route('technician.index');
     }
 
     public function show($id) {
@@ -65,15 +60,13 @@ class UserController extends Controller
 
     public function edit($id) {
         $item           = User::findOrFail($id);
-        $departments    = Department::all();
 
-        return view('pages.technician.user.edit', [
-            'item'          => $item,
-            'departments'   => $departments  
+        return view('pages.manager.technician.edit', [
+            'item'          => $item
         ]);
     }
 
-    public function update(TechAddUserRequest $request, $id) {
+    public function update(ManAddTechRequest $request, $id) {
         $data = $request->except('username');
         $item = User::findOrFail($id);
 
@@ -81,7 +74,7 @@ class UserController extends Controller
             $request->session()->flash('alert-success-update', 'User berhasil diupdate');
         }
         
-        return redirect()->route('user.index');
+        return redirect()->route('technician.index');
     }
 
     public function destroy($id) {

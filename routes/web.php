@@ -16,6 +16,7 @@ use App\Http\Controllers\Technician\UserController;
 
 use App\Http\Controllers\Manager\ManagerDashboardController;
 use App\Http\Controllers\Manager\VerifiedRequestController;
+use App\Http\Controllers\Manager\TechnicianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,4 +92,10 @@ Route::prefix('m')
         ->name('manager.verified-request.json');
         Route::put('/verified-request/verify/{id}', [VerifiedRequestController::class, 'verify'])
         ->name('manager.verified-request.verify');
+        Route::get('/technician/json', [TechnicianController::class, 'json'])
+        ->name('technician.json');
+
+        Route::resources([
+            'technician'    => TechnicianController::class
+        ]);
     });

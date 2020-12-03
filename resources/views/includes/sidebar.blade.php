@@ -101,7 +101,7 @@ Tip 2: you can also add an image using data-image tag
   <script>
     document.getElementById("sidebar").setAttribute("data-color", "orange");
   </script>
-@elseif(Auth::user()->role == 'TECHNICIAN')
+@elseif(Auth::user()->role == 'MANAGER')
   <script>
     document.getElementById("sidebar").setAttribute("data-color", "red");
   </script>

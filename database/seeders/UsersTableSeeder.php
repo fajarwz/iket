@@ -24,6 +24,20 @@ class UsersTableSeeder extends Seeder
                 'role'      => 'USER'
             ],
             [
+                'name'      => 'Roni',
+                'username'  => 'roni',
+                'password'  => Hash::make('roni'),
+                'dept_code' => 3100,
+                'role'      => 'USER'
+            ],
+            [
+                'name'      => 'Ridho',
+                'username'  => 'ridho',
+                'password'  => Hash::make('ridho'),
+                'dept_code' => 3200,
+                'role'      => 'USER'
+            ],
+            [
                 'name'      => 'Tec',
                 'username'  => 'tec',
                 'password'  => Hash::make('tec'),

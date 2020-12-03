@@ -10,6 +10,9 @@ Sekarang req terrekam sebagai form fisik dan data digital di iket.
 
 ```
 composer install
+```
+Buat database MySQL dengan nama `db_iket`
+```
 php artisan migrate --seed
 ```
 copy .env.example ke .env\
@@ -38,5 +41,5 @@ by: fajarwz
 
 Kalau kamu suka ini mohon beri star ya...
 
-[Visit my Medium](http://fajarwz.medium.com)
+[Visit my Medium](http://fajarwz.medium.com)\
 [Let's be friends](http://fb.me/fajarwz123)

@@ -92,17 +92,3 @@ Tip 2: you can also add an image using data-image tag
   </div>
   <div class="sidebar-background" style="background-image: url('{{ asset('assets/img/sidebar-5.jpg')}}') "></div>
 </div>
-
-@if (Auth::user()->role == 'USER')
-  <script>
-    document.getElementById("sidebar").setAttribute("data-color", "purle");
-  </script>
-@elseif(Auth::user()->role == 'TECHNICIAN')
-  <script>
-    document.getElementById("sidebar").setAttribute("data-color", "orange");
-  </script>
-@elseif(Auth::user()->role == 'MANAGER')
-  <script>
-    document.getElementById("sidebar").setAttribute("data-color", "red");
-  </script>
-@endif

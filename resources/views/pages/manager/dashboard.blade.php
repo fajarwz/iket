@@ -92,7 +92,7 @@
                                      <tr>
                                          <td>{{ $item->followed_up_request->request_id }}</td>
                                          <td>{{ $item->followed_up_request->user_request->request_created_date }}</td>
-                                         <td>{{ $item->followed_up_request->user_request->client_name }}</td>
+                                         <td>{{ $item->followed_up_request->user_request->user->name }}</td>
                                          <td>{{ $item->followed_up_request->user_request->break_type->name }}</td>
                                          <td>{{ $item->followed_up_request->user_request->description }}</td>
                                          <td>{{ $item->followed_up_request->target_date }}</td>
@@ -129,7 +129,7 @@
                                      </tr>
                                      @empty
                                      <tr>
-                                         <td class="text-center" colspan="10">Tidak ada data yang dapat ditampilkan</td>
+                                         <td class="text-center" colspan="11">Tidak ada data yang dapat ditampilkan</td>
                                      </tr>
                                      @endforelse
                                  </tbody>
@@ -161,6 +161,7 @@
                                          <th>Tgl Selesai</th>
                                          <th>Teknisi</th>
                                          <th>Status</th>
+                                         <th>Catatan Teknisi</th>
                                          <th>Action</th>
                                      </tr>
                                  </thead>
@@ -206,7 +207,7 @@
                                      </tr>
                                      @empty
                                      <tr>
-                                         <td class="text-center" colspan="10">Tidak ada data yang dapat ditampilkan</td>
+                                         <td class="text-center" colspan="11">Tidak ada data yang dapat ditampilkan</td>
                                      </tr>
                                      @endforelse
                                  </tbody>

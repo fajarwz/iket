@@ -4,3 +4,5 @@
 <script src="{{ asset('assets/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 <script src="{{ asset('assets/js/plugins/bootstrap-switch.js') }}"></script>
+
+@include('includes.sidebar-color')

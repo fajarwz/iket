@@ -91,7 +91,7 @@
                                     <tr>
                                         <td>{{ $item->request_id }}</td>
                                         <td>{{ $item->user_request->request_created_date }}</td>
-                                        <td>{{ $item->user_request->client_name }}</td>
+                                        <td>{{ $item->user_request->user->name }}</td>
                                         <td>{{ $item->user_request->break_type->name }}</td>
                                         <td>{{ $item->user_request->description }}</td>
                                         <td>{{ $item->target_date }}</td>
@@ -160,7 +160,7 @@
                                     <tr>
                                         <td>{{ $item->request_id }}</td>
                                         <td>{{ $item->user_request->request_created_date }}</td>
-                                        <td>{{ $item->user_request->client_name }}</td>
+                                        <td>{{ $item->user_request->user->name }}</td>
                                         <td>{{ $item->user_request->break_type->name }}</td>
                                         <td>{{ $item->user_request->description }}</td>
                                         <td>{{ $item->target_date }}</td>

@@ -1,4 +1,4 @@
-<div class="sidebar" data-image="{{ asset('assets/img/sidebar-5.jpg')}}">
+<div class="sidebar" id="sidebar" data-color="" data-image="{{ asset('assets/img/sidebar-5.jpg')}}">
   <!--
 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -90,4 +90,19 @@ Tip 2: you can also add an image using data-image tag
 
       </ul>
   </div>
+  <div class="sidebar-background" style="background-image: url('{{ asset('assets/img/sidebar-5.jpg')}}') "></div>
 </div>
+
+@if (Auth::user()->role == 'USER')
+  <script>
+    document.getElementById("sidebar").setAttribute("data-color", "purle");
+  </script>
+@elseif(Auth::user()->role == 'TECHNICIAN')
+  <script>
+    document.getElementById("sidebar").setAttribute("data-color", "orange");
+  </script>
+@elseif(Auth::user()->role == 'TECHNICIAN')
+  <script>
+    document.getElementById("sidebar").setAttribute("data-color", "red");
+  </script>
+@endif

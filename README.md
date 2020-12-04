@@ -6,17 +6,22 @@ Pertama user membuat form di iket, lalu diprint, ditandatangani oleh nya sebagai
 
 Sekarang req terrekam sebagai form fisik dan data digital di iket.
 
-### Instalasi
+### Tech Stack
+- Laravel 8
+- Bootstrap 4
+lain-lain:
+- Yajra Datatables
+- Laravel Dompdf
+- Light Bootstrap Admin Theme
 
-```
-composer install
-```
-Buat database MySQL dengan nama `db_iket`
-```
-php artisan migrate --seed
-```
-copy .env.example ke .env\
-sesuaikan konfigurasi env seperti username dan password database dengan milikmu
+### Instalasi
+- Fork atau Download 
+- Masuk ke folder iket ini
+- Copy .env.example ke .env (Jika tidak ada .env silakan buat di root folder)
+- Sesuaikan konfigurasi .env seperti username dan password database dengan milikmu
+- Buat database MySQL dengan nama `db_iket`
+- Jalankan di terminal `composer install`
+- Jalankan di terminal `php artisan migrate --seed`
 
 ### Jalankan Aplikasi
 ```
@@ -24,7 +29,6 @@ php artisan serve
 ```
 
 ### User
-
 User\
 Username: user\
 Password: user
@@ -36,6 +40,9 @@ Password: tec
 Manager\
 Username: man\
 Password: man
+
+Link Demo (28 Nov 2020):
+https://youtu.be/a0-zpBeMEL8
 
 by: fajarwz
 

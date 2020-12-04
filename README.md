@@ -2,13 +2,19 @@
 
 Ticketing sederhana
 
-Pertama user membuat form di iket, lalu diprint, ditandatangani oleh nya sebagai pemohon dan kabag pemohon, hasil print yang sudah ditandatangani diserahkan ke teknisi. Lalu Teknisi mengerjakan request. Setelah selesai mengerjakannya, teknisi menambah deskripsi req di iket (tgl target, selesai, teknisi, status req, catatan teknisi) dan mengisi detail form fisik dan menandatanganinya, setelah itu form diserahkan ke manager. Manager memverifikasi req dengan memberi ttd digital di iket dan ttd di form fisik. (Fitur laporan di manager coming soon...)
+- User membuat form di iket
+- Form diprint, ditandatangani oleh nya sebagai pemohon dan di ttd juga oleh kabag pemohon. 
+- Hasil print yang sudah ditandatangani diserahkan ke teknisi. 
+- Teknisi mengerjakan request. 
+- Setelah selesai mengerjakannya, teknisi menambah deskripsi req di iket (tgl target, selesai, status req, catatan teknisi) dan mengisi detail form fisik dan menandatanganinya
+- Setelah itu form diserahkan ke manager. Manager memverifikasi request dengan memberi ttd digital di iket dan ttd di form fisik. 
+- Sekarang req terrekam sebagai form fisik dan data digital di iket.
 
-Sekarang req terrekam sebagai form fisik dan data digital di iket.
+Next, fitur laporan di manager dan ganti password user 
 
 ### Tech Stack
 - Laravel 8
-- Bootstrap 4
+- Bootstrap 4\
 lain-lain:
 - Yajra Datatables
 - Laravel Dompdf
@@ -42,12 +48,7 @@ Manager\
 Username: man\
 Password: man
 
-Link Demo (28 Nov 2020):
-https://youtu.be/a0-zpBeMEL8
-
-by: fajarwz
-
-Kalau kamu suka ini mohon beri star ya...
+[Link Demo](https://youtu.be/a0-zpBeMEL8) (28 Nov 2020)
 
 [Visit my Medium](http://fajarwz.medium.com)\
 [Let's be friends](http://fb.me/fajarwz123)

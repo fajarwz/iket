@@ -18,10 +18,6 @@ class IsManager
     {
         if(Auth::user() && (Auth::user()->role == 'MANAGER'))
             return $next($request);
-        // elseif(Auth::user() && (Auth::user()->role == 'TECHNICIAN'))
-        //     return redirect('/t');
-        // elseif(Auth::user() && (Auth::user()->role == 'USER'))
-        //     return redirect('/');
         return response('Unauthorized. <a href="javascript:history.back()">Go Back</a>', 401);
     }
 }

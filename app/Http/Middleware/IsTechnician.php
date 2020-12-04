@@ -18,10 +18,6 @@ class IsTechnician
     {
         if(Auth::user() && (Auth::user()->role == 'TECHNICIAN'))
             return $next($request);
-        // elseif(Auth::user() && (Auth::user()->role == 'MANAGER'))
-        //     return redirect('/m');
-        // elseif(Auth::user() && (Auth::user()->role == 'USER'))
-        //     return redirect('/');
         return response('Unauthorized. <a href="javascript:history.back()">Go Back</a>', 401);
     }
 }

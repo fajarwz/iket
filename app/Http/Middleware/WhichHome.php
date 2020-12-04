@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class IsUser
+class WhichHome
 {
     /**
      * Handle an incoming request.
@@ -14,10 +13,14 @@ class IsUser
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle()
     {
         if(Auth::user() && (Auth::user()->role == 'USER'))
-            return $next($request);
+            return redirect('/');
+        elseif(Auth::user() && (Auth::user()->role == 'TECHNICIAN'))
+            return redirect('/t');
+        elseif(Auth::user() && (Auth::user()->role == 'MANAGER'))
+            return redirect('/m');
         return response('Unauthorized. <a href="javascript:history.back()">Go Back</a>', 401);
     }
 }

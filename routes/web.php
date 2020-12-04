@@ -32,10 +32,13 @@ use App\Http\Controllers\Manager\TechnicianController;
 Auth::routes(['register' => false, 'reset' => false]);
 
 Route::prefix('/')
+    ->get('/', [UserDashboardController::class, 'index'])
+    ->middleware(['auth', 'which.home'])
+    ->name('user.dashboard');
+
+Route::prefix('/')
     ->middleware(['auth', 'is.user'])
     ->group(function(){
-        Route::get('/', [UserDashboardController::class, 'index'])
-        ->name('user.dashboard');
         Route::get('/request', [RequestController::class, 'index'])
         ->name('user.request');
         Route::get('/request/json', [RequestController::class, 'json'])

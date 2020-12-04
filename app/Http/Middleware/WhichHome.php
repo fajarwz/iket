@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Closure;
 use Illuminate\Support\Facades\Auth;
 
 class WhichHome
@@ -13,10 +14,10 @@ class WhichHome
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle()
+    public function handle($request, Closure $next)
     {
         if(Auth::user() && (Auth::user()->role == 'USER'))
-            return redirect('/');
+            return $next($request);
         elseif(Auth::user() && (Auth::user()->role == 'TECHNICIAN'))
             return redirect('/t');
         elseif(Auth::user() && (Auth::user()->role == 'MANAGER'))

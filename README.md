@@ -15,7 +15,7 @@ lain-lain:
 - Light Bootstrap Admin Theme
 
 ### Instalasi
-- Fork atau Download 
+- Clone atau Download 
 - Masuk ke folder iket ini
 - Copy .env.example ke .env (Jika tidak ada .env silakan buat di root folder)
 - Sesuaikan konfigurasi .env seperti username dan password database dengan milikmu
